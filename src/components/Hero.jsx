@@ -67,17 +67,6 @@ function Hero() {
           LinkedIn
         </a>
       </div>
-
-      {/* Bio — left aligned */}
-      <div className="w-full max-w-2xl mx-auto border-t border-cool-gray pt-12 text-left">
-        <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-4 block">
-          {t.aboutLabel}
-        </span>
-        <div className="space-y-4">
-          <p className="text-gray-600 leading-relaxed text-sm md:text-base">{t.bio1}</p>
-          <p className="text-gray-600 leading-relaxed text-sm md:text-base">{t.bio2}</p>
-        </div>
-      </div>
     </section>
   )
 }

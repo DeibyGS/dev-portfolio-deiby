@@ -34,11 +34,6 @@ describe('Hero', () => {
     expect(cta).toHaveAttribute('href', '#projects')
   })
 
-  it('shows bio section label "// sobre mí"', () => {
-    renderWithLang(<Hero />)
-    // In ES, hero.aboutLabel = '// sobre mí'
-    expect(screen.getByText('// sobre mí')).toBeInTheDocument()
-  })
 
   it('has a GitHub link', () => {
     renderWithLang(<Hero />)
