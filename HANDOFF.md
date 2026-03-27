@@ -17,11 +17,7 @@
 | Priority | Task | File |
 |----------|------|------|
 | 🔴 High | Deploy en Vercel | conectar repo en vercel.com |
-| 🔴 High | Añadir foto de perfil real | src/components/Hero.jsx — reemplazar div con iniciales DG por `<img src="/avatar.jpg" />` y añadir imagen en public/ |
 | 🟡 Medium | Conectar descripción EN de proyectos | src/components/ProjectCard.jsx — recibir lang como prop y mostrar descriptionEn cuando lang === 'en' |
-| 🟡 Medium | Añadir imágenes de proyectos | src/data/projects.js → imageUrl campo + imagen en public/images/ |
-| 🔴 High | Añadir screenshots de proyectos | src/data/projects.js → imageUrl + public/images/ |
-| 🟡 Medium | Añadir tercer proyecto | src/data/projects.js — añadir objeto al array |
 | 🟢 Low | Menú hamburguesa en mobile | src/components/Navbar.jsx — los nav links y controles están hidden en mobile |
 | 🟢 Low | AvailabilityBadge en mobile | src/components/AvailabilityBadge.jsx — actualmente hidden md:hidden, añadir versión mobile si se desea |
 
@@ -37,6 +33,11 @@
 - Badge de disponibilidad (verde/rojo, configurable en src/data/availability.js)
 - Switch de idioma ES/EN con persistencia en localStorage (clave: portfolio-lang)
 - Diseño responsive mobile-first con Tailwind CSS v3
+
+## Estructura de imágenes
+- Todas las cover de proyectos → `public/images/` (referenciadas como `/images/nombre.png`)
+- Avatar y favicon → `public/` raíz
+- Para añadir imagen a nuevo proyecto: copiar a `public/images/` y actualizar `imageUrl` en projects.js
 
 ## Key Technical Notes
 - **Tailwind v3 forzado**: Vite 8 instala Tailwind v4 por defecto. Mantener `"tailwindcss": "^3.x.x"` en package.json.
