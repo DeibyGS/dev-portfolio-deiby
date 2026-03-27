@@ -1,0 +1,79 @@
+import { useLang } from '../context/LangContext'
+import { translations } from '../data/i18n'
+
+const education = [
+  { period: '02/2024 — hoy',        title: 'Grado Superior: Desarrollo de Aplicaciones Multiplataforma (DAM)', institution: 'The Power · Madrid', inProgress: true },
+  { period: '02/2024 — hoy',        title: 'Máster Web Full Stack',                                            institution: 'The Power · Madrid', inProgress: true },
+  { period: '09/2025 — 10/2025',    title: 'Especialista en creación de informes empresariales Oracle (EPM)',  institution: 'Cas-Training · Madrid', inProgress: false },
+  { period: '06/2025 — 07/2025',    title: 'Curso Desarrollador Oracle SQL-PL/SQL',                            institution: 'Cas-Training · Madrid', inProgress: false },
+  { period: '01/2025',              title: 'Confección y publicación de páginas web (IFCD0110)',                institution: 'Dabo Consulting', inProgress: false },
+]
+
+const certifications = [
+  { name: 'Artificial Intelligence Fundamentals', org: 'IBM', year: '2026' },
+  { name: 'Oracle Database 23ai SQL Certified Associate', org: 'Oracle', year: '2025' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', org: 'Oracle', year: '2025' },
+  { name: 'OCI AI Foundations Associate', org: 'Oracle', year: '2025' },
+]
+
+function Education() {
+  const { lang } = useLang()
+  const t = translations[lang].education
+
+  return (
+    <section id="education" className="bg-slate-900 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        <span className="text-xs font-semibold text-cyan-400 uppercase tracking-widest mb-2 block">
+          {t.label}
+        </span>
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-100 mb-12">
+          {t.title}
+        </h2>
+
+        {/* Timeline */}
+        <div className="space-y-6">
+          {education.map((item, index) => (
+            <div key={index} className="flex gap-4 items-start">
+              <span className="text-xs font-mono text-cyan-400 w-36 shrink-0 pt-1 leading-relaxed">
+                {item.period}
+              </span>
+              <div>
+                <p className="text-base font-semibold text-slate-100">{item.title}</p>
+                <p className="text-sm text-slate-400 mt-0.5">{item.institution}</p>
+                {item.inProgress && (
+                  <span className="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 mt-1">
+                    {t.inProgress}
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Certifications */}
+        <h3 className="text-base font-semibold text-slate-100 mt-12 mb-4">
+          {t.certTitle}
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {certifications.map((cert, index) => (
+            <div key={index} className="flex items-start gap-3 bg-slate-800 border border-slate-700 rounded-lg p-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"
+                className="text-cyan-400 shrink-0 mt-0.5">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 3.99 8.093 3.99 10c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.249-8.25-3.286z" />
+              </svg>
+              <div>
+                <p className="text-sm font-medium text-slate-100">{cert.name}</p>
+                <p className="text-xs text-slate-500 mt-0.5">{cert.org} · {cert.year}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Education

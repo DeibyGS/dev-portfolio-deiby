@@ -1,23 +1,29 @@
 import { render, screen } from '@testing-library/react'
+import { LangProvider } from '../context/LangContext'
 import Projects from '../components/Projects'
+
+function renderWithLang(ui) {
+  return render(<LangProvider>{ui}</LangProvider>)
+}
 
 describe('Projects', () => {
   it('renders without crashing', () => {
-    render(<Projects />)
+    renderWithLang(<Projects />)
   })
 
-  it('shows "Proyectos" section label', () => {
-    render(<Projects />)
-    expect(screen.getByText('Proyectos')).toBeInTheDocument()
+  it('shows "Lo que he construido" heading', () => {
+    renderWithLang(<Projects />)
+    // In ES, projects.title = 'Lo que he construido'
+    expect(screen.getByText('Lo que he construido')).toBeInTheDocument()
   })
 
   it('renders the gmail-ai-agent card', () => {
-    render(<Projects />)
+    renderWithLang(<Projects />)
     expect(screen.getByText('gmail-ai-agent')).toBeInTheDocument()
   })
 
   it('renders the EvolutFit card', () => {
-    render(<Projects />)
+    renderWithLang(<Projects />)
     expect(screen.getByText('EvolutFit')).toBeInTheDocument()
   })
 })

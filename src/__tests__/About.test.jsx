@@ -1,33 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import About from '../components/About'
 
+// About.jsx now returns null — it was merged into Hero.
+// Tests only verify it does not crash.
+
 describe('About', () => {
   it('renders without crashing', () => {
-    render(<About />)
+    // Should not throw even though the component returns null
+    expect(() => render(<About />)).not.toThrow()
   })
 
-  it('shows "Sobre mí" heading', () => {
-    render(<About />)
-    expect(screen.getByText('Sobre mí')).toBeInTheDocument()
-  })
-
-  it('shows "Tecnologías" heading', () => {
-    render(<About />)
-    expect(screen.getByText('Tecnologías')).toBeInTheDocument()
-  })
-
-  it('renders React tech badge', () => {
-    render(<About />)
-    expect(screen.getByText('React')).toBeInTheDocument()
-  })
-
-  it('renders Node.js tech badge', () => {
-    render(<About />)
-    expect(screen.getByText('Node.js')).toBeInTheDocument()
-  })
-
-  it('renders Python tech badge', () => {
-    render(<About />)
-    expect(screen.getByText('Python')).toBeInTheDocument()
+  it('renders nothing (returns null)', () => {
+    const { container } = render(<About />)
+    expect(container).toBeEmptyDOMElement()
   })
 })
