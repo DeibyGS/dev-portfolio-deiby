@@ -1,20 +1,25 @@
+import { LangProvider } from './context/LangContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
+import TechStack from './components/TechStack'
 import Projects from './components/Projects'
+import Education from './components/Education'
 import Contact from './components/Contact'
 
 function App() {
   return (
-    <div className="bg-slate-950 text-slate-100 font-sans">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
-    </div>
+    <LangProvider>
+      <div className="bg-slate-950 text-slate-100 font-sans">
+        <Navbar />
+        <main>
+          <Hero />
+          <TechStack />
+          <Projects />
+          <Education />
+          <Contact />
+        </main>
+      </div>
+    </LangProvider>
   )
 }
 
