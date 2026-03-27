@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --accent: #00FF41;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #020617; }
-::-webkit-scrollbar-thumb { background: #0e7490; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #ffffff; }
+::-webkit-scrollbar-thumb { background: #000000; border-radius: 0px; }

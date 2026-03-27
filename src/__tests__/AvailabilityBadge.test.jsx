@@ -39,11 +39,12 @@ describe('AvailabilityBadge', () => {
     expect(screen.getByText('Disponible remoto')).toBeInTheDocument()
   })
 
-  it('has green dot (bg-green-400 class) for available_remote state', async () => {
+  it('has matrix dot (bg-matrix class) for available_remote state', async () => {
     mockStatus = 'available_remote'
     const { default: AvailabilityBadge } = await import('../components/AvailabilityBadge')
     const { container } = renderWithLang(<AvailabilityBadge />)
-    const dot = container.querySelector('.bg-green-400')
+    // Cyber-Minimalist redesign: dot colour changed from bg-green-400 to bg-matrix
+    const dot = container.querySelector('.bg-matrix')
     expect(dot).toBeInTheDocument()
   })
 

@@ -17,9 +17,14 @@ describe('Hero', () => {
     expect(heading).toHaveTextContent('Deiby Gorrin')
   })
 
-  it('shows "Fullstack Developer"', () => {
+  it('shows "Fullstack Developer" in terminal block', () => {
     renderWithLang(<Hero />)
-    expect(screen.getByText('Fullstack Developer')).toBeInTheDocument()
+    // In the Cyber-Minimalist redesign, "Fullstack Developer" is part of the
+    // terminal line `role: "Fullstack Developer"`, split across child elements.
+    // We use a substring matcher to locate the containing div.
+    expect(
+      screen.getByText((content) => content.includes('Fullstack Developer'))
+    ).toBeInTheDocument()
   })
 
   it('has "Ver proyectos" CTA link pointing to #projects', () => {
@@ -47,5 +52,12 @@ describe('Hero', () => {
     const links = screen.getAllByRole('link')
     const linkedinLink = links.find(l => l.getAttribute('href')?.includes('linkedin.com'))
     expect(linkedinLink).toBeInTheDocument()
+  })
+
+  it('renders avatar img with alt="Deiby Gorrin"', () => {
+    renderWithLang(<Hero />)
+    // Avatar is now an <img> element (Cyber-Minimalist redesign), not a div with "DG" text
+    const avatar = screen.getByRole('img', { name: 'Deiby Gorrin' })
+    expect(avatar).toBeInTheDocument()
   })
 })

@@ -17,25 +17,25 @@ describe('LangSwitch', () => {
     expect(screen.getByRole('button', { name: 'EN' })).toBeInTheDocument()
   })
 
-  it('ES button is active by default (has text-cyan-400 class)', () => {
+  it('ES button is active by default (has text-white bg-black class)', () => {
     renderWithLang(<LangSwitch />)
     const esButton = screen.getByRole('button', { name: 'ES' })
     // LangProvider defaults to localStorage value or 'es'
     // In test environment localStorage is empty → lang = 'es'
-    expect(esButton.className).toMatch(/text-cyan-400/)
+    expect(esButton.className).toMatch(/text-white/)
   })
 
   it('EN button is NOT active by default', () => {
     renderWithLang(<LangSwitch />)
     const enButton = screen.getByRole('button', { name: 'EN' })
-    expect(enButton.className).not.toMatch(/text-cyan-400/)
+    expect(enButton.className).not.toMatch(/text-white/)
   })
 
   it('clicking EN makes EN button active', () => {
     renderWithLang(<LangSwitch />)
     const enButton = screen.getByRole('button', { name: 'EN' })
     fireEvent.click(enButton)
-    expect(enButton.className).toMatch(/text-cyan-400/)
+    expect(enButton.className).toMatch(/text-white/)
   })
 
   it('clicking EN makes ES button inactive', () => {
@@ -43,6 +43,6 @@ describe('LangSwitch', () => {
     const esButton = screen.getByRole('button', { name: 'ES' })
     const enButton = screen.getByRole('button', { name: 'EN' })
     fireEvent.click(enButton)
-    expect(esButton.className).not.toMatch(/text-cyan-400/)
+    expect(esButton.className).not.toMatch(/text-white/)
   })
 })

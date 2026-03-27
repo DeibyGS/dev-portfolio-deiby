@@ -9,7 +9,7 @@ import Contact from './components/Contact'
 function App() {
   return (
     <LangProvider>
-      <div className="bg-slate-950 text-slate-100 font-sans">
+      <div className="bg-white text-black font-mono">
         <Navbar />
         <main>
           <Hero />

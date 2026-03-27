@@ -8,18 +8,23 @@ function Projects() {
   const t = translations[lang].projects
 
   return (
-    <section id="projects" className="bg-slate-950 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="bg-white py-16 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <span className="text-xs font-semibold text-cyan-400 uppercase tracking-widest mb-2 block">
+        <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-2 block">
           {t.label}
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-100 mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-black font-sans mb-12">
           {t.title}
         </h2>
 
-        <div className="flex flex-col gap-6">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-cool-gray border border-cool-gray">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              featured={index === 0}
+            />
           ))}
         </div>
       </div>

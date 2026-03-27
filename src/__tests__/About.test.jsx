@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import About from '../components/About'
 
 // About.jsx now returns null — it was merged into Hero.
