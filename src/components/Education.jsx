@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
+import CertModal from './CertModal'
 
 const education = [
   { period: '02/2024 — hoy',     title: 'Grado Superior: Desarrollo de Aplicaciones Multiplataforma (DAM)', institution: 'The Power · Madrid', inProgress: true },
@@ -10,15 +12,16 @@ const education = [
 ]
 
 const certifications = [
-  { name: 'Artificial Intelligence Fundamentals', org: 'IBM', year: '2026' },
-  { name: 'Oracle Database 23ai SQL Certified Associate', org: 'Oracle', year: '2025' },
-  { name: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', org: 'Oracle', year: '2025' },
-  { name: 'OCI AI Foundations Associate', org: 'Oracle', year: '2025' },
+  { name: 'Artificial Intelligence Fundamentals', org: 'IBM', year: '2026', pdfUrl: '/IBM_Artificial_Intelligence_Fundamentals.pdf' },
+  { name: 'Oracle Database 23ai SQL Certified Associate', org: 'Oracle', year: '2025', pdfUrl: '/OracleDatabase23aiSQL.pdf' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', org: 'Oracle', year: '2025', pdfUrl: '/OracleCloud2025AIFoundations.pdf' },
+  { name: 'Oracle Cloud Infrastructure 2025 Data Science Professional', org: 'Oracle', year: '2025', pdfUrl: '/OracleCloud2025DataScienceProfessional.pdf' },
 ]
 
 function Education() {
   const { lang } = useLang()
   const t = translations[lang].education
+  const [selectedCert, setSelectedCert] = useState(null)
 
   return (
     <section id="education" className="bg-[#FAFAFA] py-16 md:py-24 px-4 sm:px-6 lg:px-8">
@@ -57,21 +60,34 @@ function Education() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {certifications.map((cert, index) => (
-            <div key={index} className="flex items-start gap-3 bg-white border border-cool-gray hover:border-black transition-colors duration-150 p-4">
+            <button
+              key={index}
+              onClick={() => setSelectedCert(cert)}
+              className="flex items-start gap-3 bg-white border border-cool-gray hover:border-black transition-colors duration-150 p-4 text-left group w-full"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"
                 className="text-matrix shrink-0 mt-0.5">
                 <path strokeLinecap="round" strokeLinejoin="round"
                   d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 3.99 8.093 3.99 10c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.249-8.25-3.286z" />
               </svg>
-              <div>
+              <div className="flex-1 min-w-0">
                 <p className="font-sans text-sm font-medium text-black">{cert.name}</p>
                 <p className="font-mono text-xs text-gray-400 mt-0.5">{cert.org} · {cert.year}</p>
               </div>
-            </div>
+              {/* Indicador "ver" — aparece en hover */}
+              <span className="font-mono text-xs text-matrix opacity-0 group-hover:opacity-100 transition-opacity duration-150 shrink-0 mt-0.5">
+                ver ↗
+              </span>
+            </button>
           ))}
         </div>
       </div>
+
+      {/* Modal PDF */}
+      {selectedCert && (
+        <CertModal cert={selectedCert} onClose={() => setSelectedCert(null)} />
+      )}
     </section>
   )
 }
