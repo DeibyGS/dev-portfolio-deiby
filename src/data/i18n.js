@@ -66,6 +66,14 @@ export const translations = {
         },
       ],
     },
+    stats: {
+      items: [
+        { value: '12+', label: 'años experiencia' },
+        { value: '3',   label: 'proyectos' },
+        { value: '4',   label: 'certificaciones' },
+        { value: '2',   label: 'idiomas' },
+      ],
+    },
     github: {
       label: '// actividad',
       title: 'Actividad en GitHub',
@@ -141,6 +149,14 @@ export const translations = {
             'Tools: Docker, Git, Vite',
           ],
         },
+      ],
+    },
+    stats: {
+      items: [
+        { value: '12+', label: 'years experience' },
+        { value: '3',   label: 'projects' },
+        { value: '4',   label: 'certifications' },
+        { value: '2',   label: 'languages' },
       ],
     },
     github: {

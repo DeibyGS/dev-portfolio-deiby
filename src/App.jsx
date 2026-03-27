@@ -6,15 +6,17 @@ import TechStack from './components/TechStack'
 import Projects from './components/Projects'
 import Education from './components/Education'
 import GithubActivity from './components/GithubActivity'
+import Stats from './components/Stats'
 import Contact from './components/Contact'
 
 function App() {
   return (
     <LangProvider>
-      <div className="bg-white text-black font-mono">
+      <div className="bg-dark-bg text-dark-text font-mono">
         <Navbar />
         <main>
           <Hero />
+          <Stats />
           <About />
           <TechStack />
           <Projects />

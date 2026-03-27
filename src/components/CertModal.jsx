@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 
 function CertModal({ cert, onClose }) {
-  // Cerrar con tecla ESC
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', handleKey)
@@ -13,32 +12,29 @@ function CertModal({ cert, onClose }) {
   }, [onClose])
 
   return (
-    // Overlay
     <div
-      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      {/* Modal — detener propagación para no cerrar al hacer click dentro */}
       <div
-        className="bg-white border border-black w-full max-w-4xl flex flex-col"
+        className="bg-dark-card border border-dark-border w-full max-w-4xl flex flex-col"
         style={{ height: '85vh' }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header estilo terminal */}
-        <div className="flex items-center justify-between border-b border-black px-4 py-3 shrink-0">
+        <div className="flex items-center justify-between border-b border-dark-border px-4 py-3 shrink-0">
           <div className="flex items-center gap-3">
             <span className="font-mono text-xs text-matrix">▸</span>
-            <span className="font-mono text-xs text-black truncate max-w-xs sm:max-w-md">
+            <span className="font-mono text-xs text-dark-text truncate max-w-xs sm:max-w-md">
               {cert.name}
             </span>
-            <span className="font-mono text-xs text-gray-400">{cert.org} · {cert.year}</span>
+            <span className="font-mono text-xs text-dark-muted">{cert.org} · {cert.year}</span>
           </div>
           <div className="flex items-center gap-4 shrink-0">
-            {/* Botón descarga */}
             <a
               href={cert.pdfUrl}
               download
-              className="font-mono text-xs text-gray-500 hover:text-matrix transition-colors duration-150 flex items-center gap-1"
+              className="font-mono text-xs text-dark-muted hover:text-matrix transition-colors duration-150 flex items-center gap-1"
               title="Descargar PDF"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
@@ -48,10 +44,9 @@ function CertModal({ cert, onClose }) {
               </svg>
               descargar
             </a>
-            {/* Botón cerrar */}
             <button
               onClick={onClose}
-              className="font-mono text-sm text-black hover:text-matrix transition-colors duration-150 leading-none"
+              className="font-mono text-sm text-dark-muted hover:text-matrix transition-colors duration-150 leading-none"
               aria-label="Cerrar"
             >
               ✕
@@ -59,7 +54,6 @@ function CertModal({ cert, onClose }) {
           </div>
         </div>
 
-        {/* Iframe PDF */}
         <div className="flex-1 overflow-hidden">
           <iframe
             src={cert.pdfUrl}
@@ -68,16 +62,15 @@ function CertModal({ cert, onClose }) {
           />
         </div>
 
-        {/* Footer fallback para móvil */}
-        <div className="border-t border-cool-gray px-4 py-2 shrink-0 flex items-center justify-between">
-          <span className="font-mono text-xs text-gray-400">
+        <div className="border-t border-dark-border px-4 py-2 shrink-0 flex items-center justify-between">
+          <span className="font-mono text-xs text-dark-muted">
             ESC para cerrar · click fuera para cerrar
           </span>
           <a
             href={cert.pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-gray-500 hover:text-matrix transition-colors duration-150"
+            className="font-mono text-xs text-dark-muted hover:text-matrix transition-colors duration-150"
           >
             abrir en nueva pestaña ↗
           </a>

@@ -8,9 +8,9 @@ function Navbar() {
   const t = translations[lang].nav
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-14 bg-white border-b border-cool-gray">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-14 bg-dark-bg border-b border-dark-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-        <a href="#hero" className="font-mono font-bold text-black text-sm hover:text-matrix transition-colors duration-150">
+        <a href="#hero" className="font-mono font-bold text-dark-text text-sm hover:text-matrix transition-colors duration-150">
           deiby.gorrin
         </a>
 
@@ -25,7 +25,7 @@ function Navbar() {
             <a
               key={href}
               href={href}
-              className="text-sm text-black font-medium hover:text-matrix transition-colors duration-150 relative group"
+              className="text-sm text-dark-muted font-medium hover:text-matrix transition-colors duration-150 relative group"
             >
               {label}
               <span className="absolute -bottom-0.5 left-0 w-0 h-[2px] bg-matrix transition-all duration-150 group-hover:w-full" />
@@ -35,7 +35,7 @@ function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <AvailabilityBadge />
-          <div className="w-px h-4 bg-cool-gray" />
+          <div className="w-px h-4 bg-dark-border" />
           <LangSwitch />
         </div>
       </div>
