@@ -7,7 +7,7 @@ export const projects = [
     stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'Gemini API', 'Docker'],
     githubUrl: 'https://github.com/DeibyGS/gmail-ai-agent',
     liveUrl: null,
-    imageUrl: null,
+    imageUrl: '/gmail-ai-agent-cover.png',
   },
   {
     id: 2,
@@ -17,6 +17,6 @@ export const projects = [
     stack: ['React', 'React Native', 'Node.js', 'MongoDB', 'SCSS'],
     githubUrl: 'https://github.com/DeibyGS/EvolutFit',
     liveUrl: 'https://evolufit-frontend.vercel.app/',
-    imageUrl: null,
+    imageUrl: '/evolufit-cover.png',
   },
 ]
