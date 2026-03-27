@@ -1,8 +1,8 @@
+import { useState } from 'react'
 import { GitHubCalendar } from 'react-github-calendar'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 
-// Tema alineado con la paleta Cyber-Minimalista
 const cyberTheme = {
   light: [
     '#E2E8F0', // sin contribuciones → cool-gray
@@ -13,9 +13,21 @@ const cyberTheme = {
   ],
 }
 
+const CURRENT_YEAR = new Date().getFullYear()
+// Años disponibles desde 2024 hasta el año actual
+const YEARS = Array.from(
+  { length: CURRENT_YEAR - 2024 + 1 },
+  (_, i) => 2024 + i
+)
+
 function GithubActivity() {
   const { lang } = useLang()
   const t = translations[lang].github
+  const [selectedYear, setSelectedYear] = useState(CURRENT_YEAR)
+
+  const totalCountLabel = lang === 'es'
+    ? `{{count}} contribuciones en ${selectedYear}`
+    : `{{count}} contributions in ${selectedYear}`
 
   return (
     <section id="activity" className="bg-white py-16 md:py-24 px-4 sm:px-6 lg:px-8">
@@ -23,24 +35,42 @@ function GithubActivity() {
         <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-2 block">
           {t.label}
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-black font-sans mb-10">
-          {t.title}
-        </h2>
+
+        {/* Cabecera con título y selector de año */}
+        <div className="flex items-end justify-between gap-4 mb-10 flex-wrap">
+          <h2 className="text-3xl md:text-4xl font-bold text-black font-sans">
+            {t.title}
+          </h2>
+
+          {/* Tabs de año — estilo GitHub */}
+          <div className="flex items-center gap-1">
+            {YEARS.map((year) => (
+              <button
+                key={year}
+                onClick={() => setSelectedYear(year)}
+                className={`font-mono text-xs px-3 py-1.5 border transition-colors duration-150 ${
+                  selectedYear === year
+                    ? 'bg-black text-white border-black'
+                    : 'bg-white text-gray-500 border-cool-gray hover:border-black hover:text-black'
+                }`}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="border border-cool-gray p-6 bg-[#FAFAFA] overflow-x-auto">
           <GitHubCalendar
             username="DeibyGS"
+            year={selectedYear}
             theme={cyberTheme}
             colorScheme="light"
             blockSize={12}
             blockMargin={4}
             fontSize={12}
             style={{ fontFamily: 'JetBrains Mono, monospace', color: '#6B7280' }}
-            labels={{
-              totalCount: lang === 'es'
-                ? '{{count}} contribuciones en el último año'
-                : '{{count}} contributions in the last year',
-            }}
+            labels={{ totalCount: totalCountLabel }}
           />
         </div>
 
