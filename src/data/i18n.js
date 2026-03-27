@@ -36,6 +36,10 @@ export const translations = {
       certTitle: 'Certificaciones',
       inProgress: 'En curso',
     },
+    github: {
+      label: '// actividad',
+      title: 'Actividad en GitHub',
+    },
     contact: {
       label: '// contacto',
       title: 'Hablemos',
@@ -78,6 +82,10 @@ export const translations = {
       title: 'Education & Certifications',
       certTitle: 'Certifications',
       inProgress: 'In progress',
+    },
+    github: {
+      label: '// activity',
+      title: 'GitHub Activity',
     },
     contact: {
       label: '// contact',
