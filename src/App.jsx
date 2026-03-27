@@ -1,6 +1,7 @@
 import { LangProvider } from './context/LangContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import About from './components/About'
 import TechStack from './components/TechStack'
 import Projects from './components/Projects'
 import Education from './components/Education'
@@ -14,6 +15,7 @@ function App() {
         <Navbar />
         <main>
           <Hero />
+          <About />
           <TechStack />
           <Projects />
           <Education />

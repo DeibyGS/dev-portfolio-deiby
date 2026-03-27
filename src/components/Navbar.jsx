@@ -16,7 +16,7 @@ function Navbar() {
 
         <div className="hidden md:flex items-center gap-8">
           {[
-            { href: '#hero',      label: t.about },
+            { href: '#about',     label: t.about },
             { href: '#skills',    label: t.skills },
             { href: '#projects',  label: t.projects },
             { href: '#education', label: t.education },

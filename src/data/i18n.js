@@ -36,6 +36,36 @@ export const translations = {
       certTitle: 'Certificaciones',
       inProgress: 'En curso',
     },
+    about: {
+      label: '// sobre mí',
+      terminalFile: 'profile.sh',
+      initLine: '> cargando perfil...',
+      nameLine: '> nombre: "Deiby Gorrin"',
+      roleLine: '> rol: "Fullstack Developer"',
+      skillsCmd: '> verificando habilidades...',
+      groups: [
+        {
+          title: 'Perfil profesional',
+          items: [
+            'Pensamiento analítico',
+            'Orientación a resultados',
+            'Experiencia en entornos empresariales (12+ años)',
+            'Disponibilidad inmediata',
+            'Formación continua (DAM + Full Stack en curso)',
+            'Adaptación rápida a nuevos contextos',
+          ],
+        },
+        {
+          title: 'Stack técnico',
+          items: [
+            'Frontend: React, TypeScript, SCSS',
+            'Backend: Python, Node.js, FastAPI',
+            'Data: Oracle SQL, PL/SQL, OCI',
+            'Herramientas: Docker, Git, Vite',
+          ],
+        },
+      ],
+    },
     github: {
       label: '// actividad',
       title: 'Actividad en GitHub',
@@ -82,6 +112,36 @@ export const translations = {
       title: 'Education & Certifications',
       certTitle: 'Certifications',
       inProgress: 'In progress',
+    },
+    about: {
+      label: '// about me',
+      terminalFile: 'profile.sh',
+      initLine: '> loading profile...',
+      nameLine: '> name: "Deiby Gorrin"',
+      roleLine: '> role: "Fullstack Developer"',
+      skillsCmd: '> checking skills...',
+      groups: [
+        {
+          title: 'Professional profile',
+          items: [
+            'Analytical thinking',
+            'Results-oriented',
+            'Business environment experience (12+ yrs)',
+            'Immediately available',
+            'Continuous learning (DAM + Full Stack ongoing)',
+            'Quick adaptation to new contexts',
+          ],
+        },
+        {
+          title: 'Tech stack',
+          items: [
+            'Frontend: React, TypeScript, SCSS',
+            'Backend: Python, Node.js, FastAPI',
+            'Data: Oracle SQL, PL/SQL, OCI',
+            'Tools: Docker, Git, Vite',
+          ],
+        },
+      ],
     },
     github: {
       label: '// activity',
