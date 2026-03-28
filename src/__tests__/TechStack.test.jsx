@@ -29,15 +29,25 @@ describe('TechStack', () => {
     expect(screen.getByText('Python')).toBeInTheDocument()
   })
 
-  it('renders Oracle SQL fallback text "ORA"', () => {
+  it('renders Oracle SQL label', () => {
     renderWithLang(<TechStack />)
-    // Oracle SQL has no devicon → renders a div with "ORA" text
-    expect(screen.getByText('ORA')).toBeInTheDocument()
+    // Oracle SQL now uses devicon oracle-original.svg
+    expect(screen.getByText('Oracle SQL')).toBeInTheDocument()
   })
 
-  it('renders Power BI fallback text "PBI"', () => {
+  it('renders Power BI label', () => {
     renderWithLang(<TechStack />)
-    // Power BI has no devicon → renders a div with "PBI" text
-    expect(screen.getByText('PBI')).toBeInTheDocument()
+    // Power BI now uses Simple Icons CDN
+    expect(screen.getByText('Power BI')).toBeInTheDocument()
+  })
+
+  it('renders TypeScript label (replaced Angular)', () => {
+    renderWithLang(<TechStack />)
+    expect(screen.getByText('TypeScript')).toBeInTheDocument()
+  })
+
+  it('renders npm-style terminal footer', () => {
+    renderWithLang(<TechStack />)
+    expect(screen.getByText(/paquetes cargados/)).toBeInTheDocument()
   })
 })
