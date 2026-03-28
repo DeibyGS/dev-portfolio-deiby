@@ -20,8 +20,8 @@ function App() {
           <About />
           <Projects />
           <Education />
-          <GithubActivity />
           <TechStack />
+          <GithubActivity />
           <Contact />
         </main>
       </div>
