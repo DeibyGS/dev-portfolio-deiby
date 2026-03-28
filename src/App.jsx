@@ -7,6 +7,7 @@ import Projects from './components/Projects'
 import Education from './components/Education'
 import GithubActivity from './components/GithubActivity'
 import Stats from './components/Stats'
+import SectionNav from './components/SectionNav'
 import Contact from './components/Contact'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <LangProvider>
       <div className="bg-dark-bg text-dark-text font-mono">
         <Navbar />
+        <SectionNav />
         <main>
           <Hero />
           <Stats />
