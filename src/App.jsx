@@ -18,10 +18,10 @@ function App() {
           <Hero />
           <Stats />
           <About />
-          <TechStack />
           <Projects />
           <Education />
           <GithubActivity />
+          <TechStack />
           <Contact />
         </main>
       </div>

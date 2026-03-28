@@ -49,7 +49,6 @@ export const translations = {
           items: [
             'Pensamiento analítico',
             'Orientación a resultados',
-            'Experiencia en entornos empresariales (12+ años)',
             'Disponibilidad inmediata',
             'Formación continua (DAM + Full Stack en curso)',
             'Adaptación rápida a nuevos contextos',
@@ -68,7 +67,7 @@ export const translations = {
     },
     stats: {
       items: [
-        { value: '12+', label: 'años experiencia' },
+        { value: '18',  label: 'tecnologías' },
         { value: '3',   label: 'proyectos' },
         { value: '4',   label: 'certificaciones' },
         { value: '2',   label: 'idiomas' },
@@ -134,7 +133,6 @@ export const translations = {
           items: [
             'Analytical thinking',
             'Results-oriented',
-            'Business environment experience (12+ yrs)',
             'Immediately available',
             'Continuous learning (DAM + Full Stack ongoing)',
             'Quick adaptation to new contexts',
@@ -153,7 +151,7 @@ export const translations = {
     },
     stats: {
       items: [
-        { value: '12+', label: 'years experience' },
+        { value: '18',  label: 'technologies' },
         { value: '3',   label: 'projects' },
         { value: '4',   label: 'certifications' },
         { value: '2',   label: 'languages' },

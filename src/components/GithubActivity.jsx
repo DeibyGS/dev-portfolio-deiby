@@ -5,8 +5,8 @@ import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
 
 const cyberTheme = {
-  light: [
-    '#2A2A2A', // sin contribuciones → dark-border
+  dark: [
+    '#1a1a1a', // sin contribuciones
     '#003d10',
     '#006622',
     '#00AA2E',
