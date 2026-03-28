@@ -11,10 +11,9 @@ describe('Projects', () => {
     renderWithLang(<Projects />)
   })
 
-  it('shows "Lo que he construido" heading', () => {
+  it('shows projects label', () => {
     renderWithLang(<Projects />)
-    // In ES, projects.title = 'Lo que he construido'
-    expect(screen.getByText('Lo que he construido')).toBeInTheDocument()
+    expect(screen.getByText(/\/\/ proyectos/i)).toBeInTheDocument()
   })
 
   it('renders the gmail-ai-agent card', () => {

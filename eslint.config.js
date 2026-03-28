@@ -23,7 +23,9 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // motion (framer-motion) se usa como motion.div, motion.h1, etc. en JSX —
+      // ESLint sin react-plugin no detecta member expressions como uso de variable
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]|^motion$' }],
     },
   },
   // Vitest globals for test files

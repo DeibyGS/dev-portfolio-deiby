@@ -11,9 +11,10 @@ describe('Navbar', () => {
     renderWithLang(<Navbar />)
   })
 
-  it('shows "Deiby Gorrin" text', () => {
+  it('shows "deiby.gorrin" brand text', () => {
     renderWithLang(<Navbar />)
-    expect(screen.getByText('Deiby Gorrin')).toBeInTheDocument()
+    // Cyber-Minimalist redesign: brand logo is now "deiby.gorrin" (monospace)
+    expect(screen.getByText('deiby.gorrin')).toBeInTheDocument()
   })
 
   it('has a Skills nav link', () => {

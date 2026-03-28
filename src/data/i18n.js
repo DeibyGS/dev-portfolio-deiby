@@ -2,9 +2,10 @@ export const translations = {
   es: {
     nav: {
       about: 'Sobre mí',
-      skills: 'Skills',
       projects: 'Proyectos',
       education: 'Formación',
+      skills: 'Skills',
+      activity: 'Actividad',
       contact: 'Contacto',
     },
     availability: {
@@ -36,6 +37,49 @@ export const translations = {
       certTitle: 'Certificaciones',
       inProgress: 'En curso',
     },
+    about: {
+      label: '// sobre mí',
+      terminalFile: 'profile.sh',
+      profileCmd: 'cat profile.sh',
+      initLine: '> cargando perfil...',
+      nameLine: '> nombre: "Deiby Gorrin"',
+      roleLine: '> rol: "Fullstack Developer"',
+      skillsFile: 'skills.sh',
+      skillsCmd: 'verify-skills --all',
+      groups: [
+        {
+          title: 'Perfil profesional',
+          items: [
+            'Pensamiento analítico',
+            'Orientación a resultados',
+            'Disponibilidad inmediata',
+            'Formación continua (DAM + Full Stack en curso)',
+            'Adaptación rápida a nuevos contextos',
+          ],
+        },
+        {
+          title: 'Stack técnico',
+          items: [
+            'Frontend: React, TypeScript, SCSS',
+            'Backend: Python, Node.js, FastAPI',
+            'Data: Oracle SQL, PL/SQL, OCI',
+            'Herramientas: Docker, Git, Vite',
+          ],
+        },
+      ],
+    },
+    stats: {
+      items: [
+        { value: '18',  label: 'tecnologías' },
+        { value: '3',   label: 'proyectos' },
+        { value: '4',   label: 'certificaciones' },
+        { value: '2',   label: 'idiomas' },
+      ],
+    },
+    github: {
+      label: '// actividad',
+      title: 'Actividad en GitHub',
+    },
     contact: {
       label: '// contacto',
       title: 'Hablemos',
@@ -45,9 +89,10 @@ export const translations = {
   en: {
     nav: {
       about: 'About',
-      skills: 'Skills',
       projects: 'Projects',
       education: 'Education',
+      skills: 'Skills',
+      activity: 'Activity',
       contact: 'Contact',
     },
     availability: {
@@ -78,6 +123,49 @@ export const translations = {
       title: 'Education & Certifications',
       certTitle: 'Certifications',
       inProgress: 'In progress',
+    },
+    about: {
+      label: '// about me',
+      terminalFile: 'profile.sh',
+      profileCmd: 'cat profile.sh',
+      initLine: '> loading profile...',
+      nameLine: '> name: "Deiby Gorrin"',
+      roleLine: '> role: "Fullstack Developer"',
+      skillsFile: 'skills.sh',
+      skillsCmd: 'verify-skills --all',
+      groups: [
+        {
+          title: 'Professional profile',
+          items: [
+            'Analytical thinking',
+            'Results-oriented',
+            'Immediately available',
+            'Continuous learning (DAM + Full Stack ongoing)',
+            'Quick adaptation to new contexts',
+          ],
+        },
+        {
+          title: 'Tech stack',
+          items: [
+            'Frontend: React, TypeScript, SCSS',
+            'Backend: Python, Node.js, FastAPI',
+            'Data: Oracle SQL, PL/SQL, OCI',
+            'Tools: Docker, Git, Vite',
+          ],
+        },
+      ],
+    },
+    stats: {
+      items: [
+        { value: '18',  label: 'technologies' },
+        { value: '3',   label: 'projects' },
+        { value: '4',   label: 'certifications' },
+        { value: '2',   label: 'languages' },
+      ],
+    },
+    github: {
+      label: '// activity',
+      title: 'GitHub Activity',
     },
     contact: {
       label: '// contact',

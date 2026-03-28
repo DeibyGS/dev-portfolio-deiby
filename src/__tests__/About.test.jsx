@@ -1,17 +1,26 @@
 import { render, screen } from '@testing-library/react'
+import { LangProvider } from '../context/LangContext'
 import About from '../components/About'
 
-// About.jsx now returns null — it was merged into Hero.
-// Tests only verify it does not crash.
+const renderAbout = () => render(
+  <LangProvider>
+    <About />
+  </LangProvider>
+)
 
 describe('About', () => {
   it('renders without crashing', () => {
-    // Should not throw even though the component returns null
-    expect(() => render(<About />)).not.toThrow()
+    expect(() => renderAbout()).not.toThrow()
   })
 
-  it('renders nothing (returns null)', () => {
-    const { container } = render(<About />)
-    expect(container).toBeEmptyDOMElement()
+  it('renders the about section', () => {
+    const { container } = renderAbout()
+    expect(container.querySelector('#about')).toBeTruthy()
+  })
+
+  it('renders [OK] skill items', () => {
+    renderAbout()
+    const okItems = screen.getAllByText('[OK]')
+    expect(okItems.length).toBeGreaterThan(0)
   })
 })
