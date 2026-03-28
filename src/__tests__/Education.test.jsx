@@ -31,10 +31,16 @@ describe('Education', () => {
     expect(badges.length).toBeGreaterThan(0)
   })
 
-  it('shows certifications section heading', () => {
+  it('shows certifications terminal command', () => {
     renderWithLang(<Education />)
-    // In ES, education.certTitle = 'Certificaciones'
-    expect(screen.getByText('Certificaciones')).toBeInTheDocument()
+    // Certifications block now uses npm terminal style
+    expect(screen.getByText('npm run verify-certs')).toBeInTheDocument()
+  })
+
+  it('shows verified badge on certifications', () => {
+    renderWithLang(<Education />)
+    const verified = screen.getAllByText('✓ verified')
+    expect(verified.length).toBe(4)
   })
 
   it('shows "Oracle" text in certifications', () => {
