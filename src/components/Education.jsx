@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import CertModal from './CertModal'
 import FadeIn from './FadeIn'
+import TerminalHeader from './TerminalHeader'
 
 const courses = [
   {
@@ -62,17 +64,16 @@ function Education() {
   const { lang } = useLang()
   const t = translations[lang].education
   const [selectedCert, setSelectedCert] = useState(null)
+  const [collapsedEdu, setCollapsedEdu] = useState(false)
+  const [collapsedCerts, setCollapsedCerts] = useState(false)
 
   return (
     <section id="education" className="bg-dark-bg py-16 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-2 block">
+          <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-10 block">
             {t.label}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-dark-text font-sans mb-10">
-            {t.title}
-          </h2>
         </FadeIn>
 
         <div className="flex flex-col gap-4">
@@ -81,21 +82,11 @@ function Education() {
           <FadeIn delay={0.1}>
             <div className="border border-dark-border bg-dark-card">
 
-              {/* Terminal header */}
-              <div className="flex items-center gap-1.5 px-5 py-3 border-b border-dark-border">
-                <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-                <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-                <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-                <span className="font-mono text-xs text-dark-muted ml-2">education.sh</span>
-              </div>
+              <TerminalHeader filename="education.sh" command="npm run load-education" collapsed={collapsedEdu} onToggle={() => setCollapsedEdu(c => !c)} />
 
-              {/* Comando */}
-              <div className="px-5 py-4 border-b border-dark-border">
-                <span className="font-mono text-sm">
-                  <span className="text-matrix">$ </span>
-                  <span className="text-dark-text">npm run load-education</span>
-                </span>
-              </div>
+              <AnimatePresence initial={false}>
+              {!collapsedEdu && (
+              <motion.div key="edu-content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }} style={{ overflow: 'hidden' }}>
 
               {/* Lista de cursos */}
               <div className="px-5 py-5 flex flex-col gap-4">
@@ -141,6 +132,10 @@ function Education() {
                   {lang === 'es' ? `${courses.length} cursos cargados` : `${courses.length} courses loaded`}
                 </span>
               </div>
+
+              </motion.div>
+              )}
+              </AnimatePresence>
             </div>
           </FadeIn>
 
@@ -148,21 +143,11 @@ function Education() {
           <FadeIn delay={0.15}>
             <div className="border border-dark-border bg-dark-card">
 
-              {/* Terminal header */}
-              <div className="flex items-center gap-1.5 px-5 py-3 border-b border-dark-border">
-                <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-                <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-                <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-                <span className="font-mono text-xs text-dark-muted ml-2">certs.sh</span>
-              </div>
+              <TerminalHeader filename="certs.sh" command="npm run verify-certs" collapsed={collapsedCerts} onToggle={() => setCollapsedCerts(c => !c)} />
 
-              {/* Comando */}
-              <div className="px-5 py-4 border-b border-dark-border">
-                <span className="font-mono text-sm">
-                  <span className="text-matrix">$ </span>
-                  <span className="text-dark-text">npm run verify-certs</span>
-                </span>
-              </div>
+              <AnimatePresence initial={false}>
+              {!collapsedCerts && (
+              <motion.div key="certs-content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }} style={{ overflow: 'hidden' }}>
 
               {/* Lista de certificaciones */}
               <div className="px-5 py-5 flex flex-col gap-3">
@@ -208,6 +193,10 @@ function Education() {
                     : `${certifications.length} certificates verified`}
                 </span>
               </div>
+
+              </motion.div>
+              )}
+              </AnimatePresence>
             </div>
           </FadeIn>
 

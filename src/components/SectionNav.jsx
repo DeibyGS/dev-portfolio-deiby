@@ -21,22 +21,22 @@ function SectionNav() {
   ]
 
   useEffect(() => {
-    const observers = []
+    const handleScroll = () => {
+      // Punto de referencia: 40% desde la parte superior del viewport
+      const trigger = window.scrollY + window.innerHeight * 0.4
 
-    SECTION_IDS.forEach((id) => {
-      const el = document.getElementById(id)
-      if (!el) return
+      // La sección activa es la última cuyo top está por encima del trigger
+      let current = null
+      for (const id of SECTION_IDS) {
+        const el = document.getElementById(id)
+        if (el && el.offsetTop <= trigger) current = id
+      }
+      setActive(current)
+    }
 
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(id) },
-        // Sección activa cuando ocupa la franja central del viewport
-        { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
-      )
-      obs.observe(el)
-      observers.push(obs)
-    })
-
-    return () => observers.forEach((o) => o.disconnect())
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // estado inicial sin scroll
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (

@@ -1,35 +1,76 @@
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { projects } from '../data/projects'
 import ProjectCard from './ProjectCard'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
+import TerminalHeader from './TerminalHeader'
 
 function Projects() {
   const { lang } = useLang()
   const t = translations[lang].projects
+  const [collapsed, setCollapsed] = useState(false)
 
   return (
     <section id="projects" className="bg-dark-surface py-16 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-2 block">
+          <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-10 block">
             {t.label}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-dark-text font-sans mb-12">
-            {t.title}
-          </h2>
         </FadeIn>
 
-        {/* Bento Grid */}
         <FadeIn delay={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-dark-border border border-dark-border">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                featured={index === 0}
-              />
-            ))}
+          <div className="border border-dark-border bg-dark-card">
+
+            <TerminalHeader filename="projects.sh" command="ls -la ./projects" collapsed={collapsed} onToggle={() => setCollapsed(c => !c)} />
+
+            <AnimatePresence initial={false}>
+            {!collapsed && (
+            <motion.div
+              key="projects-content"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              style={{ overflow: 'hidden' }}
+            >
+
+            {/* Bento Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-dark-border">
+              {projects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  lang={lang}
+                  featured={index === 0}
+                />
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div className="px-5 py-3 border-t border-dark-border">
+              <span className="font-mono text-xs text-dark-muted">
+                <span className="text-matrix/70">{projects.length} entries</span>
+
+                {'    '}
+                {t.github.toLowerCase().replace('ver en ', '').replace('view on ', '')} →{' '}
+                <a
+                  href="https://github.com/DeibyGS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-matrix transition-colors duration-150"
+                >
+                  github.com/DeibyGS
+                </a>
+              </span>
+            </div>
+
+            </motion.div>
+            )}
+            </AnimatePresence>
+
           </div>
         </FadeIn>
       </div>

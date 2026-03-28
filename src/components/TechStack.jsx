@@ -1,6 +1,19 @@
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
+import TerminalHeader from './TerminalHeader'
+
+const listVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.04 } },
+}
+
+const itemVariants = {
+  hidden:  { opacity: 0, x: -8 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] } },
+}
 
 const D = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
 
@@ -46,42 +59,43 @@ function getLevelColor(level) {
 function TechStack() {
   const { lang } = useLang()
   const t = translations[lang].skills
+  const [collapsed, setCollapsed] = useState(false)
 
   return (
     <section id="skills" className="bg-dark-bg py-16 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-2 block">
+          <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-10 block">
             {t.label}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-dark-text font-sans mb-10">
-            {t.title}
-          </h2>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <div className="border border-dark-border bg-dark-card">
 
-            {/* Terminal header */}
-            <div className="flex items-center gap-1.5 px-5 py-3 border-b border-dark-border">
-              <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-              <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-              <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-              <span className="font-mono text-xs text-dark-muted ml-2">skills.sh</span>
-            </div>
+            <TerminalHeader filename="skills.sh" command="npm run load-stack" collapsed={collapsed} onToggle={() => setCollapsed(c => !c)} />
 
-            {/* Comando */}
-            <div className="px-5 py-4 border-b border-dark-border">
-              <span className="font-mono text-sm">
-                <span className="text-matrix">$ </span>
-                <span className="text-dark-text">npm run load-stack</span>
-              </span>
-            </div>
+            <AnimatePresence initial={false}>
+            {!collapsed && (
+            <motion.div
+              key="skills-content"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              style={{ overflow: 'hidden' }}
+            >
 
             {/* Lista de paquetes */}
-            <div className="px-5 py-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+            <motion.div
+              className="px-5 py-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3"
+              variants={listVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+            >
               {techs.map(({ label, src, level }) => (
-                <div key={label} className="flex items-center gap-2 group">
+                <motion.div key={label} variants={itemVariants} className="flex items-center gap-2 group">
                   {/* Prefijo */}
                   <span className="font-mono text-xs text-matrix shrink-0 w-5">[+]</span>
 
@@ -108,9 +122,9 @@ function TechStack() {
                   <span className={`font-mono text-xs border px-1 shrink-0 ml-auto ${getLevelColor(level)}`}>
                     {getLevelLabel(level, lang)}
                   </span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Footer */}
             <div className="px-5 py-3 border-t border-dark-border flex items-center gap-2">
@@ -119,6 +133,10 @@ function TechStack() {
                 {lang === 'es' ? `${techs.length} paquetes cargados` : `${techs.length} packages loaded`}
               </span>
             </div>
+
+            </motion.div>
+            )}
+            </AnimatePresence>
 
           </div>
         </FadeIn>

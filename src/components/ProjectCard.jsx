@@ -1,5 +1,6 @@
-function ProjectCard({ project, featured }) {
-  const { name, description, stack, githubUrl, liveUrl, imageUrl } = project
+function ProjectCard({ project, lang, featured }) {
+  const { name, description, descriptionEn, stack, githubUrl, liveUrl, imageUrl } = project
+  const desc = lang === 'en' && descriptionEn ? descriptionEn : description
 
   return (
     <article className={`bg-dark-card p-6 flex flex-col gap-4 group hover:bg-dark-surface transition-all duration-150 ${featured ? 'md:col-span-2' : ''}`}>
@@ -53,7 +54,7 @@ function ProjectCard({ project, featured }) {
       </div>
 
       {/* Description */}
-      <p className="text-sm text-dark-muted leading-relaxed flex-1">{description}</p>
+      <p className="text-sm text-dark-muted leading-relaxed flex-1">{desc}</p>
 
       {/* Stack tags */}
       <div className="flex flex-wrap gap-2 mt-auto">

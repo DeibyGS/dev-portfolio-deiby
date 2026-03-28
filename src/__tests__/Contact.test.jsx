@@ -11,10 +11,9 @@ describe('Contact', () => {
     renderWithLang(<Contact />)
   })
 
-  it('shows "Hablemos" heading', () => {
+  it('shows contact label', () => {
     renderWithLang(<Contact />)
-    // In ES, contact.title = 'Hablemos'
-    expect(screen.getByRole('heading', { name: 'Hablemos' })).toBeInTheDocument()
+    expect(screen.getByText(/\/\/ contacto/i)).toBeInTheDocument()
   })
 
   it('has a LinkedIn link', () => {

@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { GitHubCalendar } from 'react-github-calendar'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
+import TerminalHeader from './TerminalHeader'
 
 const cyberTheme = {
   dark: [
@@ -21,29 +23,32 @@ function GithubActivity() {
   const { lang } = useLang()
   const t = translations[lang].github
   const [selectedYear, setSelectedYear] = useState(CURRENT_YEAR)
+  const [collapsed, setCollapsed] = useState(false)
 
   return (
     <section id="activity" className="bg-dark-surface py-16 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-2 block">
+          <span className="font-mono text-xs text-matrix uppercase tracking-widest mb-10 block">
             {t.label}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-dark-text font-sans mb-10">
-            {t.title}
-          </h2>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <div className="border border-dark-border bg-dark-card">
 
-            {/* Terminal header */}
-            <div className="flex items-center gap-1.5 px-5 py-3 border-b border-dark-border">
-              <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-              <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-              <span className="w-2.5 h-2.5 rounded-full bg-dark-border" />
-              <span className="font-mono text-xs text-dark-muted ml-2">activity.sh</span>
-            </div>
+            <TerminalHeader filename="activity.sh" collapsed={collapsed} onToggle={() => setCollapsed(c => !c)} />
+
+            <AnimatePresence initial={false}>
+            {!collapsed && (
+            <motion.div
+              key="activity-content"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              style={{ overflow: 'hidden' }}
+            >
 
             {/* Comando con selector de año inline */}
             <div className="px-5 py-4 border-b border-dark-border flex items-center gap-2 flex-wrap">
@@ -51,6 +56,7 @@ function GithubActivity() {
                 <span className="text-matrix">$ </span>
                 <span className="text-dark-text">git log --contributions --year=</span>
               </span>
+              <span className="font-mono text-sm text-matrix animate-pulse">▌</span>
               <div className="flex items-center gap-1">
                 {YEARS.map((year) => (
                   <button
@@ -110,6 +116,10 @@ function GithubActivity() {
                 github.com/DeibyGS ↗
               </a>
             </div>
+
+            </motion.div>
+            )}
+            </AnimatePresence>
 
           </div>
         </FadeIn>

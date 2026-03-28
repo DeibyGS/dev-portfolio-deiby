@@ -11,10 +11,9 @@ describe('Education', () => {
     renderWithLang(<Education />)
   })
 
-  it('shows "Formación & Certificaciones" heading', () => {
+  it('shows education label', () => {
     renderWithLang(<Education />)
-    // In ES, education.title = 'Formación & Certificaciones'
-    expect(screen.getByText('Formación & Certificaciones')).toBeInTheDocument()
+    expect(screen.getByText(/\/\/ formación/i)).toBeInTheDocument()
   })
 
   it('shows "The Power" institution', () => {

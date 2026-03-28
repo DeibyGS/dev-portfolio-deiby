@@ -11,10 +11,9 @@ describe('TechStack', () => {
     renderWithLang(<TechStack />)
   })
 
-  it('shows "Stack tecnológico" heading', () => {
+  it('shows skills label', () => {
     renderWithLang(<TechStack />)
-    // In ES, skills.title = 'Stack tecnológico'
-    expect(screen.getByText('Stack tecnológico')).toBeInTheDocument()
+    expect(screen.getByText(/\/\/ tecnologías/i)).toBeInTheDocument()
   })
 
   it('renders React label', () => {

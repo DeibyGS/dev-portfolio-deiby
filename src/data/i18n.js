@@ -40,10 +40,12 @@ export const translations = {
     about: {
       label: '// sobre mí',
       terminalFile: 'profile.sh',
+      profileCmd: 'cat profile.sh',
       initLine: '> cargando perfil...',
       nameLine: '> nombre: "Deiby Gorrin"',
       roleLine: '> rol: "Fullstack Developer"',
-      skillsCmd: '> verificando habilidades...',
+      skillsFile: 'skills.sh',
+      skillsCmd: 'verify-skills --all',
       groups: [
         {
           title: 'Perfil profesional',
@@ -125,10 +127,12 @@ export const translations = {
     about: {
       label: '// about me',
       terminalFile: 'profile.sh',
+      profileCmd: 'cat profile.sh',
       initLine: '> loading profile...',
       nameLine: '> name: "Deiby Gorrin"',
       roleLine: '> role: "Fullstack Developer"',
-      skillsCmd: '> checking skills...',
+      skillsFile: 'skills.sh',
+      skillsCmd: 'verify-skills --all',
       groups: [
         {
           title: 'Professional profile',
