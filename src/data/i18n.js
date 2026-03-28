@@ -2,9 +2,10 @@ export const translations = {
   es: {
     nav: {
       about: 'Sobre mí',
-      skills: 'Skills',
       projects: 'Proyectos',
       education: 'Formación',
+      skills: 'Skills',
+      activity: 'Actividad',
       contact: 'Contacto',
     },
     availability: {
@@ -86,9 +87,10 @@ export const translations = {
   en: {
     nav: {
       about: 'About',
-      skills: 'Skills',
       projects: 'Projects',
       education: 'Education',
+      skills: 'Skills',
+      activity: 'Activity',
       contact: 'Contact',
     },
     availability: {

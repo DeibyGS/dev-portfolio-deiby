@@ -16,7 +16,7 @@ function SectionNav() {
     { id: 'projects', label: nav.projects },
     { id: 'education',label: nav.education },
     { id: 'skills',   label: nav.skills },
-    { id: 'activity', label: lang === 'es' ? 'actividad' : 'activity' },
+    { id: 'activity', label: nav.activity },
     { id: 'contact',  label: nav.contact },
   ]
 
