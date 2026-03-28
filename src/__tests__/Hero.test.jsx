@@ -27,11 +27,10 @@ describe('Hero', () => {
     ).toBeInTheDocument()
   })
 
-  it('has "Ver proyectos" CTA link pointing to #projects', () => {
+  it('renders the interactive terminal input', () => {
     renderWithLang(<Hero />)
-    // In ES, hero.cta = 'Ver proyectos'
-    const cta = screen.getByText('Ver proyectos').closest('a')
-    expect(cta).toHaveAttribute('href', '#projects')
+    // CTA replaced by TerminalInput — check the $ prompt and input are present
+    expect(screen.getByRole('textbox', { name: /terminal/i })).toBeInTheDocument()
   })
 
 

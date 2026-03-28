@@ -4,13 +4,14 @@ import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
 import TerminalHeader from './TerminalHeader'
+import { listVariants, itemVariants } from '../animations'
 
-const listVariants = {
+// Variantes específicas para los items [OK] de skills (movimiento horizontal)
+const skillListVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.05 } },
 }
-
-const itemVariants = {
+const skillItemVariants = {
   hidden:  { opacity: 0, x: -6 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] } },
 }
@@ -43,16 +44,21 @@ function About() {
               {!collapsedBio && (
               <motion.div key="bio-content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }} style={{ overflow: 'hidden' }}>
 
-                <div className="px-5 py-6 flex flex-col gap-5">
-                  <div className="flex flex-col gap-1">
+                <motion.div
+                  className="px-5 py-6 flex flex-col gap-5"
+                  variants={listVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <motion.div variants={itemVariants} className="flex flex-col gap-1">
                     <span className="font-mono text-xs text-matrix">{ta.initLine}</span>
                     <span className="font-mono text-xs text-dark-muted">{ta.nameLine}</span>
                     <span className="font-mono text-xs text-dark-muted">{ta.roleLine}</span>
-                  </div>
+                  </motion.div>
                   <div className="border-t border-dark-border" />
-                  <p className="text-sm text-dark-muted leading-relaxed">{bio.bio1}</p>
-                  <p className="text-sm text-dark-muted leading-relaxed">{bio.bio2}</p>
-                </div>
+                  <motion.p variants={itemVariants} className="text-sm text-dark-muted leading-relaxed">{bio.bio1}</motion.p>
+                  <motion.p variants={itemVariants} className="text-sm text-dark-muted leading-relaxed">{bio.bio2}</motion.p>
+                </motion.div>
 
                 <div className="px-5 py-3 border-t border-dark-border">
                   <span className="font-mono text-xs text-dark-muted">
@@ -83,13 +89,13 @@ function About() {
                       </span>
                       <motion.ul
                         className="flex flex-col gap-1.5"
-                        variants={listVariants}
+                        variants={skillListVariants}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: '-40px' }}
+                        viewport={{ once: false, margin: '-40px' }}
                       >
                         {group.items.map((item) => (
-                          <motion.li key={item} variants={itemVariants} className="font-mono text-sm text-dark-text flex items-baseline gap-2">
+                          <motion.li key={item} variants={skillItemVariants} className="font-mono text-sm text-dark-text flex items-baseline gap-2">
                             <span className="text-matrix shrink-0 leading-none">[OK]</span>
                             <span className="leading-snug">{item}</span>
                           </motion.li>

@@ -5,6 +5,7 @@ import { translations } from '../data/i18n'
 import CertModal from './CertModal'
 import FadeIn from './FadeIn'
 import TerminalHeader from './TerminalHeader'
+import { listVariants, itemVariants } from '../animations'
 
 const courses = [
   {
@@ -89,9 +90,14 @@ function Education() {
               <motion.div key="edu-content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }} style={{ overflow: 'hidden' }}>
 
               {/* Lista de cursos */}
-              <div className="px-5 py-5 flex flex-col gap-4">
+              <motion.div
+                className="px-5 py-5 flex flex-col gap-4"
+                variants={listVariants}
+                initial="hidden"
+                animate="visible"
+              >
                 {courses.map(({ pkg, version, title, institution, inProgress, bar }) => (
-                  <div key={pkg} className="flex flex-col gap-1">
+                  <motion.div key={pkg} variants={itemVariants} className="flex flex-col gap-1">
                     {/* Línea principal */}
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-mono text-xs text-matrix shrink-0">
@@ -121,9 +127,9 @@ function Education() {
                       <span className="font-sans text-xs text-dark-text leading-snug">{title}</span>
                       <span className="font-mono text-xs text-dark-muted">{institution}</span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Footer */}
               <div className="px-5 py-3 border-t border-dark-border">
@@ -150,8 +156,14 @@ function Education() {
               <motion.div key="certs-content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }} style={{ overflow: 'hidden' }}>
 
               {/* Lista de certificaciones */}
-              <div className="px-5 py-5 flex flex-col gap-3">
+              <motion.div
+                className="px-5 py-5 flex flex-col gap-3"
+                variants={listVariants}
+                initial="hidden"
+                animate="visible"
+              >
                 {certifications.map((cert) => (
+                  <motion.div key={cert.pkg} variants={itemVariants}>
                   <button
                     key={cert.pkg}
                     onClick={() => setSelectedCert(cert)}
@@ -181,8 +193,9 @@ function Education() {
                       <span>↗</span>
                     </span>
                   </button>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Footer */}
               <div className="px-5 py-3 border-t border-dark-border">

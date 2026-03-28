@@ -11,10 +11,9 @@ describe('Navbar', () => {
     renderWithLang(<Navbar />)
   })
 
-  it('shows "deiby.gorrin" brand text', () => {
+  it('shows "~/deiby" brand text', () => {
     renderWithLang(<Navbar />)
-    // Cyber-Minimalist redesign: brand logo is now "deiby.gorrin" (monospace)
-    expect(screen.getByText('deiby.gorrin')).toBeInTheDocument()
+    expect(screen.getByText('~/deiby')).toBeInTheDocument()
   })
 
   it('has a Skills nav link', () => {
@@ -63,5 +62,13 @@ describe('Navbar', () => {
     renderWithLang(<Navbar />)
     expect(screen.getByRole('button', { name: 'ES' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'EN' })).toBeInTheDocument()
+  })
+
+  it('renders AvailabilityBadge for both desktop and mobile (two instances)', () => {
+    renderWithLang(<Navbar />)
+    // Badge renders twice: hidden md:flex (desktop) + flex md:hidden (mobile)
+    // Tailwind hides via CSS, not conditional rendering — both are in the DOM
+    const badges = screen.getAllByText(/Disponible|Not available|No disponible/i)
+    expect(badges.length).toBeGreaterThanOrEqual(2)
   })
 })

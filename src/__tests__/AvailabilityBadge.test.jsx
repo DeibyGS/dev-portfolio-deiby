@@ -31,12 +31,11 @@ describe('AvailabilityBadge', () => {
     renderWithLang(<AvailabilityBadge />)
   })
 
-  it('shows "Disponible remoto" when status is available_remote', async () => {
+  it('shows "Disponible" when status is available_remote', async () => {
     mockStatus = 'available_remote'
     const { default: AvailabilityBadge } = await import('../components/AvailabilityBadge')
     renderWithLang(<AvailabilityBadge />)
-    // In ES, availability.available_remote = 'Disponible remoto'
-    expect(screen.getByText('Disponible remoto')).toBeInTheDocument()
+    expect(screen.getByText('Disponible')).toBeInTheDocument()
   })
 
   it('has matrix dot (bg-matrix class) for available_remote state', async () => {

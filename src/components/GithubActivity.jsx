@@ -5,6 +5,7 @@ import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
 import TerminalHeader from './TerminalHeader'
+import { listVariants, itemVariants } from '../animations'
 
 const cyberTheme = {
   dark: [
@@ -50,8 +51,10 @@ function GithubActivity() {
               style={{ overflow: 'hidden' }}
             >
 
+            <motion.div variants={listVariants} initial="hidden" animate="visible">
+
             {/* Comando con selector de año inline */}
-            <div className="px-5 py-4 border-b border-dark-border flex items-center gap-2 flex-wrap">
+            <motion.div variants={itemVariants} className="px-5 py-4 border-b border-dark-border flex items-center gap-2 flex-wrap">
               <span className="font-mono text-sm">
                 <span className="text-matrix">$ </span>
                 <span className="text-dark-text">git log --contributions --year=</span>
@@ -72,10 +75,10 @@ function GithubActivity() {
                   </button>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Calendario */}
-            <div className="px-5 py-6 overflow-x-auto">
+            <motion.div variants={itemVariants} className="px-5 py-6 overflow-x-auto">
               <GitHubCalendar
                 username="DeibyGS"
                 year={selectedYear}
@@ -91,10 +94,10 @@ function GithubActivity() {
                     : `{{count}} contributions in ${selectedYear}`,
                 }}
               />
-            </div>
+            </motion.div>
 
             {/* Footer estilo git remote */}
-            <div className="px-5 py-3 border-t border-dark-border flex items-center justify-between flex-wrap gap-2">
+            <motion.div variants={itemVariants} className="px-5 py-3 border-t border-dark-border flex items-center justify-between flex-wrap gap-2">
               <div className="flex flex-col gap-0.5">
                 <span className="font-mono text-xs text-dark-muted">
                   <span className="text-matrix/70">remote</span>
@@ -115,8 +118,9 @@ function GithubActivity() {
               >
                 github.com/DeibyGS ↗
               </a>
-            </div>
+            </motion.div>
 
+            </motion.div>
             </motion.div>
             )}
             </AnimatePresence>

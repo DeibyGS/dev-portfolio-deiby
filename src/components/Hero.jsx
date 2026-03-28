@@ -4,6 +4,7 @@ import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import { availabilityStatus } from '../data/availability'
 import TerminalHeader from './TerminalHeader'
+import TerminalInput from './TerminalInput'
 
 function Hero() {
   const { lang } = useLang()
@@ -120,23 +121,14 @@ function Hero() {
               </div>
             </div>
 
-            {/* CTA */}
+            {/* Terminal interactiva */}
             <motion.div
-              className="px-5 py-4 border-t border-dark-border flex items-center gap-3 flex-wrap"
+              className="px-5 py-4 border-t border-dark-border"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <a
-                href="#projects"
-                className="font-mono text-sm bg-matrix text-dark-bg px-4 py-2 border border-matrix hover:bg-transparent hover:text-matrix transition-all duration-150"
-              >
-                {t.cta}
-              </a>
-              <span className="font-mono text-sm text-dark-muted hidden sm:inline">
-                <span className="text-matrix">›</span>
-                <span className="animate-pulse ml-1">_</span>
-              </span>
+              <TerminalInput t={t.terminal} />
             </motion.div>
 
           </motion.div>
