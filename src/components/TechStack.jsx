@@ -3,9 +3,8 @@ import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
 
 const D = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
-const S = 'https://cdn.simpleicons.org'
 
-// level: 0-100  |  categoría solo informativa (no se muestra en pantalla)
+// level: 0-100
 const techs = [
   { label: 'HTML5',        src: `${D}/html5/html5-original.svg`,             level: 88 },
   { label: 'CSS3',         src: `${D}/css3/css3-original.svg`,               level: 85 },
@@ -13,18 +12,18 @@ const techs = [
   { label: 'TypeScript',   src: `${D}/typescript/typescript-original.svg`,   level: 65 },
   { label: 'React',        src: `${D}/react/react-original.svg`,             level: 82 },
   { label: 'React Native', src: `${D}/react/react-original.svg`,             level: 52 },
-  { label: 'Tailwind',     src: `${D}/tailwindcss/tailwindcss-original.svg`, level: 75 },
+  { label: 'Tailwind',     src: `${D}/tailwindcss/tailwindcss-original.svg`, level: 45 },
   { label: 'SCSS',         src: `${D}/sass/sass-original.svg`,               level: 80 },
   { label: 'Node.js',      src: `${D}/nodejs/nodejs-original.svg`,           level: 68 },
   { label: 'Python',       src: `${D}/python/python-original.svg`,           level: 70 },
-  { label: 'FastAPI',      src: `${D}/fastapi/fastapi-original.svg`,         level: 65 },
+  { label: 'FastAPI',      src: `${D}/fastapi/fastapi-original.svg`,         level: 45 },
   { label: 'MongoDB',      src: `${D}/mongodb/mongodb-original.svg`,         level: 62 },
   { label: 'PostgreSQL',   src: `${D}/postgresql/postgresql-original.svg`,   level: 60 },
   { label: 'MySQL',        src: `${D}/mysql/mysql-original.svg`,             level: 63 },
-  { label: 'Oracle SQL',   src: `${D}/oracle/oracle-original.svg`,           level: 82 },
+  { label: 'Oracle SQL',   src: `${D}/oracle/oracle-original.svg`,           level: 65 },
   { label: 'Docker',       src: `${D}/docker/docker-original.svg`,           level: 58 },
   { label: 'Git',          src: `${D}/git/git-original.svg`,                 level: 80 },
-  { label: 'Power BI',     src: `${S}/powerbi/F2C811`,                       level: 65 },
+  { label: 'Power BI',     src: 'https://img.icons8.com/color/48/power-bi.png', level: 65 },
 ]
 
 function getBar(level) {
