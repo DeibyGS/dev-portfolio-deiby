@@ -6,6 +6,7 @@ import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
 import TerminalHeader from './TerminalHeader'
+import { listVariants, itemVariants } from '../animations'
 
 function Projects() {
   const { lang } = useLang()
@@ -38,16 +39,26 @@ function Projects() {
             >
 
             {/* Bento Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-dark-border">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 gap-px bg-dark-border"
+              variants={listVariants}
+              initial="hidden"
+              animate="visible"
+            >
               {projects.map((project, index) => (
-                <ProjectCard
+                <motion.div
                   key={project.id}
-                  project={project}
-                  lang={lang}
-                  featured={index === 0}
-                />
+                  variants={itemVariants}
+                  className={index === 0 ? 'md:col-span-2' : ''}
+                >
+                  <ProjectCard
+                    project={project}
+                    lang={lang}
+                    featured={index === 0}
+                  />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Footer */}
             <div className="px-5 py-3 border-t border-dark-border">

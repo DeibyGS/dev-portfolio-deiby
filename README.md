@@ -44,7 +44,20 @@ Soporte de idioma ES/EN implementado con React Context:
 - **LangContext** (`src/context/LangContext.jsx`): provee el estado del idioma global
 - **i18n.js** (`src/data/i18n.js`): objeto con todas las traducciones ES/EN para cada sección
 - **LangSwitch** (`src/components/LangSwitch.jsx`): toggle ES/EN en el Navbar, persiste en `localStorage` con clave `portfolio-lang`
-- Hook de consumo: `const { lang, t } = useLang()` en cualquier componente
+- Hook de consumo: `const { lang } = useLang()` en cualquier componente
+- **Fade de idioma**: al cambiar idioma, el contenido principal hace fade-out/fade-in (150ms) via `AnimatePresence` con `key={lang}` en `MainContent`
+<!-- /AUTO-GENERATED -->
+
+## SEO
+
+<!-- AUTO-GENERATED -->
+Meta tags configurados en `index.html`:
+
+- `<title>` y `<meta name="description">` con descripción real del portfolio
+- **Open Graph** (`og:title`, `og:description`, `og:type`, `og:url`, `og:image`) para previews en redes sociales
+- **Twitter Card** (`twitter:card`, `twitter:title`, `twitter:description`) para Twitter/X
+- `<meta name="theme-color" content="#0D0D0D">` para mobile browsers
+- OG image placeholder en `/public/og-image.png` — reemplazar con imagen real antes del deploy
 <!-- /AUTO-GENERATED -->
 
 ## Setup local

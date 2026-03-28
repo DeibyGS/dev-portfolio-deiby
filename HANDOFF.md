@@ -12,7 +12,7 @@ React 19 · Vite 8 · Tailwind CSS v3 (forzado) · Framer Motion · JavaScript �
 ---
 
 ## Current Status
-- **Progress:** 90% (8 / 9 fases completadas)
+- **Progress:** 98% (tareas SEO + fade + badge completadas)
 - **Active phase:** Deploy en Vercel
 - **Git branch:** `feature/cyber-minimal-redesign`
 - **Last commit:** `597cb11 feat(portfolio): polish final — TerminalHeader macOS, colapso, stagger, SectionNav por scroll`
@@ -24,8 +24,8 @@ React 19 · Vite 8 · Tailwind CSS v3 (forzado) · Framer Motion · JavaScript �
 1. **Deploy en Vercel**: conectar `https://github.com/DeibyGS/dev-portfolio-deiby` en vercel.com → branch `main` → sin configuración extra (vercel.json ya existe)
 2. **Abrir PR**: `gh pr create` desde `feature/cyber-minimal-redesign` → `main` con resumen del rediseño completo
 3. **Actualizar LinkedIn**: añadir URL de Vercel en el perfil
-4. **Opcional**: revisar SEO en `index.html` — `<title>`, `<meta description>`, `<meta og:*>`
-5. **Opcional**: `scroll-behavior: smooth` en `src/index.css` en el selector `html`
+4. ✅ SEO en index.html — completado (meta description + OG + Twitter Card)
+5. ✅ Scroll suave — ya estaba implementado
 
 ---
 
@@ -35,10 +35,10 @@ React 19 · Vite 8 · Tailwind CSS v3 (forzado) · Framer Motion · JavaScript �
 |----------|------|----------------|
 | 🔴 Alta | Deploy en Vercel | vercel.com → conectar repo |
 | 🔴 Alta | Abrir PR feature → main | `gh pr create` |
-| 🟡 Media | SEO básico en index.html | `<title>`, `<meta>` reales |
-| 🟡 Media | Scroll suave | `html { scroll-behavior: smooth }` en index.css |
-| 🟢 Baja | Fade en cambio de idioma | LangContext + AnimatePresence |
-| 🟢 Baja | AvailabilityBadge en mobile | Actualmente hidden en < md |
+| ✅ Hecho | SEO básico en index.html | meta description + OG + Twitter Card + theme-color |
+| ✅ Hecho | Scroll suave | ya estaba en index.css + scroll-smooth en html |
+| ✅ Hecho | Fade en cambio de idioma | AnimatePresence key={lang} en MainContent (App.jsx) |
+| ✅ Hecho | AvailabilityBadge en mobile | div flex md:hidden añadido en Navbar.jsx |
 
 ---
 
@@ -54,6 +54,9 @@ No aplica — portfolio estático sin backend.
 - **SectionNav**: basada en `scroll` listener con `offsetTop` — NO usar IntersectionObserver porque se rompe con paneles colapsados.
 - **Tailwind v3 forzado**: Vite 8 instala v4 por defecto. NO actualizar tailwindcss sin probar.
 - **i18n**: todos los textos en `src/data/i18n.js`. Para añadir sección nueva, añadir clave en `es` y `en`.
+- **Animaciones**: variantes centralizadas en `src/animations.js` (`listVariants`, `itemVariants`). Importar desde ahí para stagger consistente. About tiene `skillListVariants`/`skillItemVariants` propios (movimiento horizontal para items [OK]).
+- **FadeIn**: `once: false` — las secciones se animan al entrar Y salen al hacer scroll fuera del viewport. NO cambiar a `once: true`.
+- **Stagger en secciones**: aplicado dentro del `AnimatePresence` de cada panel. El container usa `initial="hidden" animate="visible"` con `listVariants`. Los items hijos usan `variants={itemVariants}`.
 
 ---
 
@@ -71,6 +74,14 @@ Pipeline: codebase-explorer → scrum-master → frontend-dev → quality → do
 ### 2026-03-28 — polish final: TerminalHeader macOS + colapso + animaciones
 Pipeline: scrum-master → frontend-dev × N → quality → tester → git
 Sesión larga: Hero terminal, About/TechStack/Education/GithubActivity/Projects/Contact/Stats todos rediseñados con consistencia total. TerminalHeader centralizado. SectionNav robustecida.
+
+### 2026-03-28 — section-reveal-stagger: animaciones de entrada/salida en todas las secciones
+Pipeline: codebase-explorer → scrum-master → ui-ux-designer → frontend-dev → quality → docs-dev → tester → git
+src/animations.js (nuevo) con listVariants + itemVariants centralizados. FadeIn → once: false para exit en scroll. Stagger en Stats, Projects, Education, GithubActivity, Contact, About (bio). TechStack ya tenía stagger.
+
+### 2026-03-28 — seo-scroll-fade-badge: SEO + fade idioma + badge mobile
+Pipeline: codebase-explorer → scrum-master → ui-ux-designer → frontend-dev → quality → docs-dev → tester → git
+SEO completo en index.html (OG + Twitter Card). AnimatePresence key={lang} en MainContent. AvailabilityBadge visible en mobile (flex md:hidden). Scroll suave ya estaba implementado.
 
 ---
 

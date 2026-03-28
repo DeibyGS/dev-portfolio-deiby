@@ -4,6 +4,7 @@ import FadeIn from './FadeIn'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import TerminalHeader from './TerminalHeader'
+import { listVariants, itemVariants } from '../animations'
 
 function Stats() {
   const { lang } = useLang()
@@ -27,18 +28,23 @@ function Stats() {
             transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
             style={{ overflow: 'hidden' }}
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-dark-border">
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-4 divide-x divide-dark-border"
+              variants={listVariants}
+              initial="hidden"
+              animate="visible"
+            >
               {t.items.map((item) => (
-                <div key={item.label} className="flex flex-col items-center gap-1 py-8 px-4">
+                <motion.div key={item.label} variants={itemVariants} className="flex flex-col items-center gap-1 py-8 px-4">
                   <span className="font-mono text-3xl md:text-4xl font-bold text-matrix">
                     {item.value}
                   </span>
                   <span className="font-mono text-xs text-dark-muted uppercase tracking-widest">
                     {item.label}
                   </span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
           )}
           </AnimatePresence>

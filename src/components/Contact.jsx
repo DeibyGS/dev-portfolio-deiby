@@ -4,6 +4,7 @@ import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 import FadeIn from './FadeIn'
 import TerminalHeader from './TerminalHeader'
+import { listVariants, itemVariants } from '../animations'
 
 function Contact() {
   const { lang } = useLang()
@@ -44,13 +45,18 @@ function Contact() {
             >
 
             {/* Body */}
-            <div className="px-5 py-8 flex flex-col gap-6">
-              <p className="font-mono text-sm text-dark-muted">
+            <motion.div
+              className="px-5 py-8 flex flex-col gap-6"
+              variants={listVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.p variants={itemVariants} className="font-mono text-sm text-dark-muted">
                 <span className="text-matrix">[&gt;] </span>
                 {t.subtitle}
-              </p>
+              </motion.p>
 
-              <div className="flex flex-col gap-3">
+              <motion.div variants={itemVariants} className="flex flex-col gap-3">
                 <a href="https://www.linkedin.com/in/deibygorrin" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 group w-fit">
                   <span className="font-mono text-xs text-dark-muted group-hover:text-matrix transition-colors duration-150 select-none">[link]</span>
@@ -91,8 +97,8 @@ function Contact() {
                     {copied ? '✓ copiado' : 'copiar'}
                   </button>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Footer */}
             <div className="px-5 py-3 border-t border-dark-border">

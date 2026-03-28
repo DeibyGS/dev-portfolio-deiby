@@ -3,7 +3,7 @@ function ProjectCard({ project, lang, featured }) {
   const desc = lang === 'en' && descriptionEn ? descriptionEn : description
 
   return (
-    <article className={`bg-dark-card p-6 flex flex-col gap-4 group hover:bg-dark-surface transition-all duration-150 ${featured ? 'md:col-span-2' : ''}`}>
+    <article className="bg-dark-card p-6 flex flex-col gap-4 group hover:bg-dark-surface transition-all duration-150 h-full">
       {/* Image area con overlay hover */}
       <div className="aspect-video w-full overflow-hidden border border-dark-border relative">
         {imageUrl ? (
