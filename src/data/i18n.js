@@ -18,6 +18,7 @@ export const translations = {
       description: 'Construyo aplicaciones web y móviles con stack moderno.',
       cta: 'Ver proyectos',
       aboutLabel: '// sobre mí',
+      cvDownload: { label: 'download cv', file: 'CV_Deiby_Gorrin.pdf' },
       terminal: {
         hint: "escribe 'help' para explorar",
         whoami: ['Deiby Gorrin', 'Fullstack Developer · disponible para oportunidades'],
@@ -123,6 +124,7 @@ export const translations = {
       description: 'I build web and mobile applications with a modern stack.',
       cta: 'View projects',
       aboutLabel: '// about me',
+      cvDownload: { label: 'download cv', file: 'CV_Deiby_Gorrin.pdf' },
       terminal: {
         hint: "type 'help' to explore",
         whoami: ['Deiby Gorrin', 'Fullstack Developer · available for opportunities'],

@@ -12,20 +12,18 @@ React 19 · Vite 8 · Tailwind CSS v3 (forzado) · Framer Motion · JavaScript �
 ---
 
 ## Current Status
-- **Progress:** 100% — listo para deploy
-- **Active phase:** Merge PR #5 → Deploy en Vercel
-- **Git branch:** `feature/cyber-minimal-redesign`
-- **Last commit:** `4f8343a feat(favicon): reemplazar icono Vite por símbolo >_ cyber-minimal`
-- **PR abierto:** [#5 feat: cyber-minimal redesign completo + SEO + og-image](https://github.com/DeibyGS/dev-portfolio-deiby/pull/5)
+- **Progress:** 100% — PR #5 mergeado · en producción
+- **Active phase:** cv-download-button — PR abierto para revisión
+- **Git branch:** `feature/cv-download-button`
+- **Last commit:** pendiente merge
 
 ---
 
 ## Start Here (next session)
 
-1. **Merge PR #5**: `feature/cyber-minimal-redesign` → `main` en GitHub
-2. **Deploy en Vercel**: conectar `https://github.com/DeibyGS/dev-portfolio-deiby` en vercel.com → branch `main` → sin configuración extra (vercel.json ya existe)
-3. **Verificar OG image**: tras deploy, validar en `https://www.opengraph.xyz/url/https%3A%2F%2Fdeiby.dev`
-4. **Actualizar LinkedIn**: añadir URL `https://deiby.dev` en el perfil
+1. **Colocar PDF**: añadir `public/CV_Deiby_Gorrin.pdf` para que el botón de descarga funcione
+2. **Verificar botón**: comprobar que `[↓] download cv` aparece en Hero y descarga el PDF
+3. **Deploy**: Vercel redesplegará automáticamente tras merge a `main`
 
 ---
 
@@ -33,15 +31,14 @@ React 19 · Vite 8 · Tailwind CSS v3 (forzado) · Framer Motion · JavaScript �
 
 | Priority | Task | Archivo/Acción |
 |----------|------|----------------|
-| 🔴 Alta | Merge PR #5 → main | GitHub → Pull Requests |
-| 🔴 Alta | Deploy en Vercel | vercel.com → conectar repo, branch main |
+| 🔴 Alta | Añadir CV PDF | `public/CV_Deiby_Gorrin.pdf` |
 | 🟡 Media | Verificar OG image en producción | opengraph.xyz tras deploy |
 | 🟡 Media | Actualizar LinkedIn con deiby.dev | perfil de LinkedIn |
+| ✅ Hecho | Botón [↓] download cv en Hero | Hero.jsx + i18n.js (es+en) |
+| ✅ Hecho | PR #5 mergeado a main | cyber-minimal redesign completo |
 | ✅ Hecho | SEO optimizado en index.html | título 58c, desc 151c, og:url, og:image absoluta |
 | ✅ Hecho | og-image.png creada | public/og-image.png (1200×630, cyber-minimal) |
 | ✅ Hecho | favicon >_ creado | public/favicon.svg (fondo #0D0D0D, verde #4ADE80) |
-| ✅ Hecho | twitter:image añadida | index.html |
-| ✅ Hecho | Scroll suave | ya estaba en index.css + scroll-smooth en html |
 | ✅ Hecho | Fade en cambio de idioma | AnimatePresence key={lang} en MainContent (App.jsx) |
 | ✅ Hecho | AvailabilityBadge en mobile | div flex md:hidden añadido en Navbar.jsx |
 
@@ -92,6 +89,10 @@ SEO completo en index.html (OG + Twitter Card). AnimatePresence key={lang} en Ma
 Directo con Claude (sin pipeline).
 og:url actualizado a deiby.dev. og:image con URL absoluta + dimensiones. twitter:image añadida. Título/descripción optimizados (58c / 151c). public/og-image.png creada (1200×630, cyber-minimal, JetBrains Mono). favicon.svg reemplazado por símbolo >_ verde #4ADE80 sobre fondo oscuro. PR #5 abierto con todos los cambios.
 
+### 2026-03-29 — cv-download-button: botón de descarga en Hero
+Pipeline: codebase-explorer → scrum-master → frontend-dev → quality → docs-dev → tester → git
+`[↓] download cv` añadido en Hero.jsx debajo de social links. Patrón: `<a download>` con `href="/{t.cvDownload.file}"`. Clave `cvDownload` añadida en i18n.js para ES y EN. Apunta a `public/CV_Deiby_Gorrin.pdf` — PDF debe colocarse manualmente.
+
 ---
 
-*Last updated: 2026-03-28*
+*Last updated: 2026-03-29*

@@ -116,6 +116,15 @@ function Hero() {
                       {label}
                     </a>
                   ))}
+
+                  <a
+                    href={`/${t.cvDownload.file}`}
+                    download
+                    className="text-dark-muted hover:text-matrix transition-colors duration-150 w-fit mt-1"
+                  >
+                    <span className="text-matrix select-none">[↓] </span>
+                    {t.cvDownload.label}
+                  </a>
                 </motion.div>
 
               </div>

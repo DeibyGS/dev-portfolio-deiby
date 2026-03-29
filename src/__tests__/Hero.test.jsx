@@ -54,4 +54,18 @@ describe('Hero', () => {
     const avatar = screen.getByRole('img', { name: 'Deiby Gorrin' })
     expect(avatar).toBeInTheDocument()
   })
+
+  it('renders the CV download link', () => {
+    renderWithLang(<Hero />)
+    const links = screen.getAllByRole('link')
+    const cvLink = links.find(l => l.getAttribute('href')?.includes('CV_Deiby_Gorrin.pdf'))
+    expect(cvLink).toBeInTheDocument()
+  })
+
+  it('CV link has the download attribute', () => {
+    renderWithLang(<Hero />)
+    const links = screen.getAllByRole('link')
+    const cvLink = links.find(l => l.getAttribute('href')?.includes('CV_Deiby_Gorrin.pdf'))
+    expect(cvLink).toHaveAttribute('download')
+  })
 })
