@@ -89,9 +89,7 @@ function GithubActivity() {
                 fontSize={12}
                 style={{ fontFamily: 'JetBrains Mono, monospace', color: '#6B6B6B' }}
                 labels={{
-                  totalCount: lang === 'es'
-                    ? `{{count}} contribuciones en ${selectedYear}`
-                    : `{{count}} contributions in ${selectedYear}`,
+                  totalCount: t.totalCount(selectedYear),
                 }}
               />
             </motion.div>

@@ -135,7 +135,7 @@ function Education() {
               <div className="px-5 py-3 border-t border-dark-border">
                 <span className="font-mono text-xs text-matrix">✓ </span>
                 <span className="font-mono text-xs text-dark-muted">
-                  {lang === 'es' ? `${courses.length} cursos cargados` : `${courses.length} courses loaded`}
+                  {t.coursesLoaded(courses.length)}
                 </span>
               </div>
 
@@ -183,12 +183,12 @@ function Education() {
                     </span>
 
                     {/* Verified */}
-                    <span className="font-mono text-xs text-matrix shrink-0">✓ verified</span>
+                    <span className="font-mono text-xs text-matrix shrink-0">{t.verified}</span>
 
                     {/* Ver PDF — aparece en hover */}
                     <span className="font-mono text-xs text-dark-muted group-hover:text-matrix transition-colors duration-150 ml-auto shrink-0 flex items-center gap-1">
                       <span className="hidden sm:inline opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-                        {lang === 'es' ? 'ver PDF' : 'view PDF'}
+                        {t.viewPdf}
                       </span>
                       <span>↗</span>
                     </span>
@@ -201,9 +201,7 @@ function Education() {
               <div className="px-5 py-3 border-t border-dark-border">
                 <span className="font-mono text-xs text-matrix">✓ </span>
                 <span className="font-mono text-xs text-dark-muted">
-                  {lang === 'es'
-                    ? `${certifications.length} certificados verificados`
-                    : `${certifications.length} certificates verified`}
+                  {t.certsVerified(certifications.length)}
                 </span>
               </div>
 

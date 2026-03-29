@@ -12,20 +12,19 @@ React 19 · Vite 8 · Tailwind CSS v3 (forzado) · Framer Motion · JavaScript �
 ---
 
 ## Current Status
-- **Progress:** 100% — listo para deploy
-- **Active phase:** Merge PR #5 → Deploy en Vercel
-- **Git branch:** `feature/cyber-minimal-redesign`
-- **Last commit:** `4f8343a feat(favicon): reemplazar icono Vite por símbolo >_ cyber-minimal`
-- **PR abierto:** [#5 feat: cyber-minimal redesign completo + SEO + og-image](https://github.com/DeibyGS/dev-portfolio-deiby/pull/5)
+- **Progress:** 100% — i18n audit completado
+- **Active phase:** PR #6 pendiente de merge → Vercel auto-deploy
+- **Git branch:** `feature/i18n-audit`
+- **Last commit:** pendiente (git agent)
+- **PR anterior mergeado:** #5 feat: cyber-minimal redesign
 
 ---
 
 ## Start Here (next session)
 
-1. **Merge PR #5**: `feature/cyber-minimal-redesign` → `main` en GitHub
-2. **Deploy en Vercel**: conectar `https://github.com/DeibyGS/dev-portfolio-deiby` en vercel.com → branch `main` → sin configuración extra (vercel.json ya existe)
-3. **Verificar OG image**: tras deploy, validar en `https://www.opengraph.xyz/url/https%3A%2F%2Fdeiby.dev`
-4. **Actualizar LinkedIn**: añadir URL `https://deiby.dev` en el perfil
+1. **Merge PR #6**: `feature/i18n-audit` → `main` en GitHub
+2. **Vercel auto-deploy**: el deploy se activa automáticamente al mergear a main
+3. **Verificar en producción**: cambiar idioma en deiby.dev y confirmar que todos los textos traducen correctamente
 
 ---
 
@@ -33,15 +32,11 @@ React 19 · Vite 8 · Tailwind CSS v3 (forzado) · Framer Motion · JavaScript �
 
 | Priority | Task | Archivo/Acción |
 |----------|------|----------------|
-| 🔴 Alta | Merge PR #5 → main | GitHub → Pull Requests |
-| 🔴 Alta | Deploy en Vercel | vercel.com → conectar repo, branch main |
-| 🟡 Media | Verificar OG image en producción | opengraph.xyz tras deploy |
-| 🟡 Media | Actualizar LinkedIn con deiby.dev | perfil de LinkedIn |
+| 🔴 Alta | Merge PR #6 → main | GitHub → Pull Requests |
+| ✅ Hecho | i18n audit completo | 8 componentes + i18n.js + 1 test actualizado |
 | ✅ Hecho | SEO optimizado en index.html | título 58c, desc 151c, og:url, og:image absoluta |
 | ✅ Hecho | og-image.png creada | public/og-image.png (1200×630, cyber-minimal) |
 | ✅ Hecho | favicon >_ creado | public/favicon.svg (fondo #0D0D0D, verde #4ADE80) |
-| ✅ Hecho | twitter:image añadida | index.html |
-| ✅ Hecho | Scroll suave | ya estaba en index.css + scroll-smooth en html |
 | ✅ Hecho | Fade en cambio de idioma | AnimatePresence key={lang} en MainContent (App.jsx) |
 | ✅ Hecho | AvailabilityBadge en mobile | div flex md:hidden añadido en Navbar.jsx |
 
@@ -92,6 +87,10 @@ SEO completo en index.html (OG + Twitter Card). AnimatePresence key={lang} en Ma
 Directo con Claude (sin pipeline).
 og:url actualizado a deiby.dev. og:image con URL absoluta + dimensiones. twitter:image añadida. Título/descripción optimizados (58c / 151c). public/og-image.png creada (1200×630, cyber-minimal, JetBrains Mono). favicon.svg reemplazado por símbolo >_ verde #4ADE80 sobre fondo oscuro. PR #5 abierto con todos los cambios.
 
+### 2026-03-29 — i18n-audit: auditoría completa de textos hardcodeados
+Pipeline: codebase-explorer → scrum-master → frontend-dev → quality → tester → docs-dev → git
+8 componentes auditados. Eliminados todos los condicionales `lang === 'es' ? ... : ...` en componentes. Todos los textos pasan por `i18n.js`. Nuevas claves añadidas en ES y EN: `nav.openMenu`, `skills.packagesLoaded`, `skills.levelLabels`, `education.coursesLoaded/certsVerified/verified/viewPdf/inProgress`, `certModal.*`, `about.status/checksPassed`, `github.totalCount`, `contact.copy/copied/connection`, `hero.availability` (vía `availability[availabilityStatus]`). Test `Education.test.jsx` actualizado: `'✓ verified'` → `'✓ verificado'`. 72/72 tests ✅.
+
 ---
 
-*Last updated: 2026-03-28*
+*Last updated: 2026-03-29*

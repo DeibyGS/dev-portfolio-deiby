@@ -64,7 +64,7 @@ function About() {
                   <span className="font-mono text-xs text-dark-muted">
                     <span className="text-matrix/70">status</span>
                     {'    '}
-                    available · open to work
+                    {ta.status}
                   </span>
                 </div>
 
@@ -109,7 +109,7 @@ function About() {
                   <span className="font-mono text-xs text-dark-muted">
                     <span className="text-matrix/70">checks</span>
                     {'    '}
-                    {ta.groups.reduce((acc, g) => acc + g.items.length, 0)} passed · 0 failed
+                    {ta.checksPassed(ta.groups.reduce((acc, g) => acc + g.items.length, 0))}
                   </span>
                 </div>
 

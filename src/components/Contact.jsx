@@ -94,7 +94,7 @@ function Contact() {
                     }
                     aria-label="Copiar email"
                   >
-                    {copied ? '✓ copiado' : 'copiar'}
+                    {copied ? t.copied : t.copy}
                   </button>
                 </div>
               </motion.div>
@@ -105,7 +105,7 @@ function Contact() {
               <span className="font-mono text-xs text-dark-muted">
                 <span className="text-matrix/70">connection</span>
                 {'    '}
-                open · encrypted · ready
+                {t.connection}
               </span>
             </div>
 

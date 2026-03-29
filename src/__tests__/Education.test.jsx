@@ -38,7 +38,8 @@ describe('Education', () => {
 
   it('shows verified badge on certifications', () => {
     renderWithLang(<Education />)
-    const verified = screen.getAllByText('✓ verified')
+    // In ES, education.verified = '✓ verificado'
+    const verified = screen.getAllByText('✓ verificado')
     expect(verified.length).toBe(4)
   })
 

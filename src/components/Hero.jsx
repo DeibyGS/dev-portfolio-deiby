@@ -9,11 +9,12 @@ import TerminalInput from './TerminalInput'
 function Hero() {
   const { lang } = useLang()
   const t = translations[lang].hero
+  const availabilityLabel = translations[lang].availability[availabilityStatus]
   const [collapsed, setCollapsed] = useState(false)
 
   const dataLines = [
     { key: 'role',   value: '"Fullstack Developer"' },
-    { key: 'status', value: `"${availabilityStatus}"` },
+    { key: 'status', value: `"${availabilityLabel}"` },
     { key: 'stack',  value: '["React", "Python", "Node.js", "..."]' },
   ]
 
