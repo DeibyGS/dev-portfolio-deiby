@@ -7,6 +7,7 @@ export const translations = {
       skills: 'Skills',
       activity: 'Actividad',
       contact: 'Contacto',
+      openMenu: 'Abrir menú',
     },
     availability: {
       available_remote: 'Disponible',
@@ -48,12 +49,23 @@ export const translations = {
     skills: {
       label: '// tecnologías',
       title: 'Stack tecnológico',
+      packagesLoaded: (n) => `${n} paquetes cargados`,
+      levelLabels: { advanced: 'avanzado', intermediate: 'intermedio', learning: 'aprendiendo' },
     },
     education: {
       label: '// formación',
       title: 'Formación & Certificaciones',
       certTitle: 'Certificaciones',
       inProgress: 'En curso',
+      coursesLoaded: (n) => `${n} cursos cargados`,
+      certsVerified: (n) => `${n} certificados verificados`,
+      verified: '✓ verificado',
+      viewPdf: 'ver PDF',
+    },
+    certModal: {
+      download: 'descargar',
+      closeHint: 'ESC para cerrar · click fuera para cerrar',
+      openNewTab: 'abrir en nueva pestaña ↗',
     },
     about: {
       label: '// sobre mí',
@@ -64,6 +76,8 @@ export const translations = {
       roleLine: '> rol: "Fullstack Developer"',
       skillsFile: 'skills.sh',
       skillsCmd: 'verify-skills --all',
+      status: 'disponible · abierto a oportunidades',
+      checksPassed: (n) => `${n} aprobados · 0 fallos`,
       groups: [
         {
           title: 'Perfil profesional',
@@ -97,11 +111,15 @@ export const translations = {
     github: {
       label: '// actividad',
       title: 'Actividad en GitHub',
+      totalCount: (year) => `{{count}} contribuciones en ${year}`,
     },
     contact: {
       label: '// contacto',
       title: 'Hablemos',
       subtitle: 'Estoy disponible para oportunidades laborales, colaboraciones o simplemente conectar.',
+      copy: 'copiar',
+      copied: '✓ copiado',
+      connection: 'abierto · cifrado · listo',
     },
   },
   en: {
@@ -112,6 +130,7 @@ export const translations = {
       skills: 'Skills',
       activity: 'Activity',
       contact: 'Contact',
+      openMenu: 'Open menu',
     },
     availability: {
       available_remote: 'Available',
@@ -153,12 +172,23 @@ export const translations = {
     skills: {
       label: '// technologies',
       title: 'Tech stack',
+      packagesLoaded: (n) => `${n} packages loaded`,
+      levelLabels: { advanced: 'advanced', intermediate: 'intermediate', learning: 'learning' },
     },
     education: {
       label: '// education',
       title: 'Education & Certifications',
       certTitle: 'Certifications',
       inProgress: 'In progress',
+      coursesLoaded: (n) => `${n} courses loaded`,
+      certsVerified: (n) => `${n} certificates verified`,
+      verified: '✓ verified',
+      viewPdf: 'view PDF',
+    },
+    certModal: {
+      download: 'download',
+      closeHint: 'Press ESC · click outside to close',
+      openNewTab: 'open in new tab ↗',
     },
     about: {
       label: '// about me',
@@ -169,6 +199,8 @@ export const translations = {
       roleLine: '> role: "Fullstack Developer"',
       skillsFile: 'skills.sh',
       skillsCmd: 'verify-skills --all',
+      status: 'available · open to work',
+      checksPassed: (n) => `${n} passed · 0 failed`,
       groups: [
         {
           title: 'Professional profile',
@@ -202,11 +234,15 @@ export const translations = {
     github: {
       label: '// activity',
       title: 'GitHub Activity',
+      totalCount: (year) => `{{count}} contributions in ${year}`,
     },
     contact: {
       label: '// contact',
       title: "Let's talk",
       subtitle: 'I am available for job opportunities, collaborations or just to connect.',
+      copy: 'copy',
+      copied: '✓ copied',
+      connection: 'open · encrypted · ready',
     },
   },
 }

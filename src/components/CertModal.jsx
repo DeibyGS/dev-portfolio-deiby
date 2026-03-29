@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
+import { useLang } from '../context/LangContext'
+import { translations } from '../data/i18n'
 
 function CertModal({ cert, onClose }) {
+  const { lang } = useLang()
+  const t = translations[lang].certModal
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', handleKey)
@@ -42,7 +46,7 @@ function CertModal({ cert, onClose }) {
                 <path strokeLinecap="round" strokeLinejoin="round"
                   d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              descargar
+              {t.download}
             </a>
             <button
               onClick={onClose}
@@ -64,7 +68,7 @@ function CertModal({ cert, onClose }) {
 
         <div className="border-t border-dark-border px-4 py-2 shrink-0 flex items-center justify-between">
           <span className="font-mono text-xs text-dark-muted">
-            ESC para cerrar · click fuera para cerrar
+            {t.closeHint}
           </span>
           <a
             href={cert.pdfUrl}
@@ -72,7 +76,7 @@ function CertModal({ cert, onClose }) {
             rel="noopener noreferrer"
             className="font-mono text-xs text-dark-muted hover:text-matrix transition-colors duration-150"
           >
-            abrir en nueva pestaña ↗
+            {t.openNewTab}
           </a>
         </div>
       </div>

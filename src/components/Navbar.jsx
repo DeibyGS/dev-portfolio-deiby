@@ -57,7 +57,7 @@ function Navbar() {
           <button
             onClick={() => setMenuOpen(true)}
             className="md:hidden flex flex-col justify-center gap-1.5 w-8 h-8 text-dark-text hover:text-matrix transition-colors duration-150"
-            aria-label="Abrir menú"
+            aria-label={t.openMenu}
           >
             <span className="block w-6 h-px bg-current transition-all duration-150" />
             <span className="block w-4 h-px bg-current transition-all duration-150" />

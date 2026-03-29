@@ -44,10 +44,10 @@ function getBar(level) {
   return '█'.repeat(filled) + '░'.repeat(10 - filled)
 }
 
-function getLevelLabel(level, lang) {
-  if (level >= 75) return lang === 'es' ? 'avanzado'     : 'advanced'
-  if (level >= 55) return lang === 'es' ? 'intermedio'   : 'intermediate'
-  return                  lang === 'es' ? 'aprendiendo'  : 'learning'
+function getLevelLabel(level, labels) {
+  if (level >= 75) return labels.advanced
+  if (level >= 55) return labels.intermediate
+  return labels.learning
 }
 
 function getLevelColor(level) {
@@ -120,7 +120,7 @@ function TechStack() {
 
                   {/* Nivel */}
                   <span className={`font-mono text-xs border px-1 shrink-0 ml-auto ${getLevelColor(level)}`}>
-                    {getLevelLabel(level, lang)}
+                    {getLevelLabel(level, t.levelLabels)}
                   </span>
                 </motion.div>
               ))}
@@ -130,7 +130,7 @@ function TechStack() {
             <div className="px-5 py-3 border-t border-dark-border flex items-center gap-2">
               <span className="font-mono text-xs text-matrix">✓</span>
               <span className="font-mono text-xs text-dark-muted">
-                {lang === 'es' ? `${techs.length} paquetes cargados` : `${techs.length} packages loaded`}
+                {t.packagesLoaded(techs.length)}
               </span>
             </div>
 
