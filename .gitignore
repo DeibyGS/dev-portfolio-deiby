@@ -31,3 +31,10 @@ Thumbs.db
 
 # Coverage
 coverage/
+
+# Claude / agentes — documentación interna, no va al repo
+HANDOFF.md
+summary-*.md
+CLAUDE.md
+AGENTS.md
+og-image-template.html
