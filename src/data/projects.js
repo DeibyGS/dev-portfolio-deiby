@@ -1,5 +1,15 @@
 export const projects = [
   {
+    id: 4,
+    name: 'ClaudeStat',
+    description: 'Herramienta CLI + dashboard web que proporciona trazabilidad en tiempo real e inteligencia de costos para Claude Code. Se conecta al sistema de hooks para capturar cada llamada a herramienta, token y costo, los almacena localmente en SQLite, y muestra todo en un dashboard en vivo.',
+    descriptionEn: 'Real-time execution trace and cost intelligence tool for Claude Code. Hooks into the event system to capture every tool call, token, and dollar spent — stores everything locally in SQLite and surfaces the data through a live web dashboard.',
+    stack: ['TypeScript', 'Node.js', 'Express', 'React', 'SQLite', 'Vite'],
+    githubUrl: 'https://github.com/DeibyGS/claudestat',
+    liveUrl: 'https://www.npmjs.com/package/@deibygs/claudestat',
+    imageUrl: '/images/ClaudeStat.png',
+  },
+  {
     id: 1,
     name: 'gmail-ai-agent',
     description: 'Asistente IA para gestión inteligente de email con clasificación automática en 9 categorías y briefing ejecutivo diario.',

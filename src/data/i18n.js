@@ -103,7 +103,7 @@ export const translations = {
     stats: {
       items: [
         { value: '18',  label: 'tecnologías' },
-        { value: '3',   label: 'proyectos' },
+        { value: '4',   label: 'proyectos' },
         { value: '4',   label: 'certificaciones' },
         { value: '2',   label: 'idiomas' },
       ],
@@ -226,7 +226,7 @@ export const translations = {
     stats: {
       items: [
         { value: '18',  label: 'technologies' },
-        { value: '3',   label: 'projects' },
+        { value: '4',   label: 'projects' },
         { value: '4',   label: 'certifications' },
         { value: '2',   label: 'languages' },
       ],
