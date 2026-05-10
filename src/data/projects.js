@@ -6,7 +6,7 @@ export const projects = [
     descriptionEn: 'Real-time execution trace and cost intelligence tool for Claude Code. Hooks into the event system to capture every tool call, token, and dollar spent — stores everything locally in SQLite and surfaces the data through a live web dashboard.',
     stack: ['TypeScript', 'Node.js', 'Express', 'React', 'SQLite', 'Vite'],
     githubUrl: 'https://github.com/DeibyGS/claudestat',
-    liveUrl: 'https://www.npmjs.com/package/@deibygs/claudestat',
+    liveUrl: 'https://www.npmjs.com/package/@statforge/claudestat',
     imageUrl: '/images/ClaudeStat.png',
   },
   {
