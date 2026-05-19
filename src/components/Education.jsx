@@ -10,19 +10,19 @@ import { listVariants, itemVariants } from '../animations'
 const courses = [
   {
     pkg: 'dam',
-    version: '2024.0',
+    version: 'completed',
     title: 'Grado Superior: Desarrollo de Aplicaciones Multiplataforma',
     institution: 'The Power · Madrid',
-    inProgress: true,
-    bar: 8,   // bloques completados sobre 10
+    inProgress: false,
+    bar: 10,
   },
   {
     pkg: 'fullstack-master',
-    version: '2024.0',
+    version: 'completed',
     title: 'Máster Web Full Stack',
     institution: 'The Power · Madrid',
-    inProgress: true,
-    bar: 8,
+    inProgress: false,
+    bar: 10,
   },
   {
     pkg: 'bejob-ibm-ia-generativa',
