@@ -13,9 +13,9 @@ function Hero() {
   const [collapsed, setCollapsed] = useState(false)
 
   const dataLines = [
-    { key: 'role',   value: '"Fullstack Developer"' },
+    { key: 'role',   value: '"Fullstack & AI Developer"' },
     { key: 'status', value: `"${availabilityLabel}"` },
-    { key: 'stack',  value: '["React", "Python", "Node.js", "..."]' },
+    { key: 'stack',  value: '["Next.js", "FastAPI", "TypeScript", "AI"]' },
   ]
 
   const socialLinks = [

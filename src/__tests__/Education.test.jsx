@@ -23,11 +23,11 @@ describe('Education', () => {
     expect(thePowerEntries.length).toBeGreaterThan(0)
   })
 
-  it('shows "En curso" badge for in-progress entries', () => {
+  it('shows no "En curso" badges when all entries are complete', () => {
     renderWithLang(<Education />)
-    // In ES, education.inProgress = 'En curso' — two entries are in progress
-    const badges = screen.getAllByText('En curso')
-    expect(badges.length).toBeGreaterThan(0)
+    // All courses and education entries are completed — no in-progress badges expected
+    const badges = screen.queryAllByText('En curso')
+    expect(badges.length).toBe(0)
   })
 
   it('shows certifications terminal command', () => {
@@ -40,7 +40,7 @@ describe('Education', () => {
     renderWithLang(<Education />)
     // In ES, education.verified = '✓ verificado'
     const verified = screen.getAllByText('✓ verificado')
-    expect(verified.length).toBe(4)
+    expect(verified.length).toBe(5)
   })
 
   it('shows "Oracle" text in certifications', () => {
