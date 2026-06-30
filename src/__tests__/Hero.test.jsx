@@ -17,13 +17,11 @@ describe('Hero', () => {
     expect(heading).toHaveTextContent('Deiby Gorrin')
   })
 
-  it('shows "Fullstack Developer" in terminal block', () => {
+  it('shows "Fullstack & AI Developer" in terminal block', () => {
     renderWithLang(<Hero />)
-    // In the Cyber-Minimalist redesign, "Fullstack Developer" is part of the
-    // terminal line `role: "Fullstack Developer"`, split across child elements.
-    // We use a substring matcher to locate the containing div.
+    // role line: `role: "Fullstack & AI Developer"`
     expect(
-      screen.getByText((content) => content.includes('Fullstack Developer'))
+      screen.getByText((content) => content.includes('Fullstack & AI Developer'))
     ).toBeInTheDocument()
   })
 
