@@ -18,25 +18,46 @@ const itemVariants = {
 const D = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
 
 // level: 0-100
-const techs = [
-  { label: 'HTML5',        src: `${D}/html5/html5-original.svg`,             level: 88 },
-  { label: 'CSS3',         src: `${D}/css3/css3-original.svg`,               level: 85 },
-  { label: 'JavaScript',   src: `${D}/javascript/javascript-original.svg`,   level: 80 },
-  { label: 'TypeScript',   src: `${D}/typescript/typescript-original.svg`,   level: 65 },
-  { label: 'React',        src: `${D}/react/react-original.svg`,             level: 82 },
-  { label: 'React Native', src: `${D}/react/react-original.svg`,             level: 52 },
-  { label: 'Tailwind',     src: `${D}/tailwindcss/tailwindcss-original.svg`, level: 45 },
-  { label: 'SCSS',         src: `${D}/sass/sass-original.svg`,               level: 80 },
-  { label: 'Node.js',      src: `${D}/nodejs/nodejs-original.svg`,           level: 68 },
-  { label: 'Python',       src: `${D}/python/python-original.svg`,           level: 70 },
-  { label: 'FastAPI',      src: `${D}/fastapi/fastapi-original.svg`,         level: 45 },
-  { label: 'MongoDB',      src: `${D}/mongodb/mongodb-original.svg`,         level: 62 },
-  { label: 'PostgreSQL',   src: `${D}/postgresql/postgresql-original.svg`,   level: 60 },
-  { label: 'MySQL',        src: `${D}/mysql/mysql-original.svg`,             level: 63 },
-  { label: 'Oracle SQL',   src: `${D}/oracle/oracle-original.svg`,           level: 65 },
-  { label: 'Docker',       src: `${D}/docker/docker-original.svg`,           level: 58 },
-  { label: 'Git',          src: `${D}/git/git-original.svg`,                 level: 80 },
-  { label: 'Power BI',     src: 'https://img.icons8.com/color/48/power-bi.png', level: 65 },
+const groups = [
+  {
+    label: null,
+    items: [
+      { label: 'HTML5',        src: `${D}/html5/html5-original.svg`,             level: 88 },
+      { label: 'CSS3',         src: `${D}/css3/css3-original.svg`,               level: 85 },
+      { label: 'JavaScript',   src: `${D}/javascript/javascript-original.svg`,   level: 80 },
+      { label: 'TypeScript',   src: `${D}/typescript/typescript-original.svg`,   level: 65 },
+      { label: 'React',        src: `${D}/react/react-original.svg`,             level: 82 },
+      { label: 'React Native', src: `${D}/react/react-original.svg`,             level: 52 },
+      { label: 'Next.js',      src: `${D}/nextjs/nextjs-original.svg`,           level: 65 },
+      { label: 'Tailwind',     src: `${D}/tailwindcss/tailwindcss-original.svg`, level: 45 },
+      { label: 'SCSS',         src: `${D}/sass/sass-original.svg`,               level: 80 },
+      { label: 'Node.js',      src: `${D}/nodejs/nodejs-original.svg`,           level: 68 },
+      { label: 'Express',      src: `${D}/express/express-original.svg`,         level: 62 },
+      { label: 'Python',       src: `${D}/python/python-original.svg`,           level: 70 },
+      { label: 'FastAPI',      src: `${D}/fastapi/fastapi-original.svg`,         level: 45 },
+      { label: 'Kotlin',       src: `${D}/kotlin/kotlin-original.svg`,           level: 35 },
+      { label: 'MongoDB',      src: `${D}/mongodb/mongodb-original.svg`,         level: 62 },
+      { label: 'PostgreSQL',   src: `${D}/postgresql/postgresql-original.svg`,   level: 60 },
+      { label: 'MySQL',        src: `${D}/mysql/mysql-original.svg`,             level: 63 },
+      { label: 'Oracle SQL',   src: `${D}/oracle/oracle-original.svg`,           level: 65 },
+      { label: 'PL/SQL',       src: `${D}/oracle/oracle-original.svg`,           level: 65 },
+      { label: 'SQLite',       src: `${D}/sqlite/sqlite-original.svg`,           level: 60 },
+      { label: 'Docker',       src: `${D}/docker/docker-original.svg`,           level: 58 },
+      { label: 'Kafka',        src: `${D}/apachekafka/apachekafka-original.svg`, level: 40 },
+      { label: 'Git',          src: `${D}/git/git-original.svg`,                 level: 80 },
+      { label: 'Vercel',       src: `${D}/vercel/vercel-original.svg`,           level: 70 },
+      { label: 'Power BI',     src: 'https://img.icons8.com/color/48/power-bi.png', level: 65 },
+    ],
+  },
+  {
+    label: 'Testing',
+    items: [
+      { label: 'Vitest',              src: `${D}/vitest/vitest-original.svg`,                   level: 65 },
+      { label: 'Jest',                src: `${D}/jest/jest-plain.svg`,                          level: 55 },
+      { label: 'React Test Lib',      src: `${D}/react/react-original.svg`,                     level: 60 },
+      { label: 'pytest',              src: `${D}/pytest/pytest-original.svg`,                   level: 50 },
+    ],
+  },
 ]
 
 function getBar(level) {
@@ -86,51 +107,45 @@ function TechStack() {
               style={{ overflow: 'hidden' }}
             >
 
-            {/* Lista de paquetes */}
-            <motion.div
-              className="px-5 py-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3"
-              variants={listVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-            >
-              {techs.map(({ label, src, level }) => (
-                <motion.div key={label} variants={itemVariants} className="flex items-center gap-2 group">
-                  {/* Prefijo */}
-                  <span className="font-mono text-xs text-matrix shrink-0 w-5">[+]</span>
-
-                  {/* Icono */}
-                  <img
-                    src={src}
-                    alt={label}
-                    width={16}
-                    height={16}
-                    className="w-4 h-4 shrink-0 object-contain"
-                  />
-
-                  {/* Nombre */}
-                  <span className="font-mono text-xs text-dark-text w-24 shrink-0 truncate">
-                    {label}
-                  </span>
-
-                  {/* Barra */}
-                  <span className="font-mono text-xs text-matrix/70 tracking-tighter shrink-0 hidden sm:block">
-                    {getBar(level)}
-                  </span>
-
-                  {/* Nivel */}
-                  <span className={`font-mono text-xs border px-1 shrink-0 ml-auto ${getLevelColor(level)}`}>
-                    {getLevelLabel(level, t.levelLabels)}
-                  </span>
-                </motion.div>
+            {/* Lista de paquetes por grupo */}
+            <div className="px-5 py-5 flex flex-col gap-6">
+              {groups.map((group, gi) => (
+                <div key={gi}>
+                  {group.label && (
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="font-mono text-xs text-matrix uppercase tracking-widest">//</span>
+                      <span className="font-mono text-xs text-dark-muted uppercase tracking-widest">{group.label}</span>
+                      <div className="flex-1 border-t border-dark-border" />
+                    </div>
+                  )}
+                  <motion.div
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3"
+                    variants={listVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-60px' }}
+                  >
+                    {group.items.map(({ label, src, level }) => (
+                      <motion.div key={label} variants={itemVariants} className="flex items-center gap-2 group">
+                        <span className="font-mono text-xs text-matrix shrink-0 w-5">[+]</span>
+                        <img src={src} alt={label} width={16} height={16} className="w-4 h-4 shrink-0 object-contain" />
+                        <span className="font-mono text-xs text-dark-text w-24 shrink-0 truncate">{label}</span>
+                        <span className="font-mono text-xs text-matrix/70 tracking-tighter shrink-0 hidden sm:block">{getBar(level)}</span>
+                        <span className={`font-mono text-xs border px-1 shrink-0 ml-auto ${getLevelColor(level)}`}>
+                          {getLevelLabel(level, t.levelLabels)}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Footer */}
             <div className="px-5 py-3 border-t border-dark-border flex items-center gap-2">
               <span className="font-mono text-xs text-matrix">✓</span>
               <span className="font-mono text-xs text-dark-muted">
-                {t.packagesLoaded(techs.length)}
+                {t.packagesLoaded(groups.reduce((acc, g) => acc + g.items.length, 0))}
               </span>
             </div>
 

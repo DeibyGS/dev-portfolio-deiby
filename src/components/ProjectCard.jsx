@@ -1,5 +1,5 @@
 function ProjectCard({ project, lang, featured }) {
-  const { name, description, descriptionEn, stack, githubUrl, liveUrl, imageUrl } = project
+  const { name, description, descriptionEn, stack, githubUrl, liveUrl, imageUrl, inProgress } = project
   const desc = lang === 'en' && descriptionEn ? descriptionEn : description
 
   return (
@@ -30,7 +30,15 @@ function ProjectCard({ project, lang, featured }) {
 
       {/* Header */}
       <div className="flex items-start justify-between gap-4">
-        <h3 className="font-mono font-bold text-dark-text text-lg">{name}</h3>
+        <div className="flex items-center gap-2 flex-wrap">
+          <h3 className="font-mono font-bold text-dark-text text-lg">{name}</h3>
+          {inProgress && (
+            <span className="font-mono text-xs border border-matrix text-matrix px-1 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-matrix animate-pulse inline-block" />
+              {lang === 'en' ? 'in progress' : 'en desarrollo'}
+            </span>
+          )}
+        </div>
         <div className="flex items-center gap-3 shrink-0">
           <a href={githubUrl} target="_blank" rel="noopener noreferrer"
             aria-label={`Ver ${name} en GitHub`}

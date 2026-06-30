@@ -15,8 +15,8 @@ export const translations = {
       not_available: 'No disponible',
     },
     hero: {
-      title: 'Fullstack Developer',
-      description: 'Construyo aplicaciones web y móviles con stack moderno.',
+      title: 'Fullstack & AI Developer',
+      description: 'Construyo productos web y SaaS con IA integrada — del prototipo a producción.',
       cta: 'Ver proyectos',
       aboutLabel: '// sobre mí',
       terminal: {
@@ -37,8 +37,8 @@ export const translations = {
         gotoUnknown: (section) => `sección desconocida: ${section}. Usa 'ls' para ver las disponibles.`,
         opening: (target) => `→ abriendo ${target}...`,
       },
-      bio1: 'Desarrollador con base en DAM (Desarrollo de Aplicaciones Multiplataforma) y Full Stack, con especialización en ecosistemas Oracle (SQL, OCI, EPM). Más de 12 años de experiencia en entornos empresariales me dan una perspectiva diferente sobre cómo el software impacta en procesos reales.',
-      bio2: 'Busco una oportunidad como Trainee o Junior para aplicar mis conocimientos en desarrollo de software y consultoría técnica. Disponibilidad inmediata, formación completada y orientación a resultados desde el primer día.',
+      bio1: 'Desarrollador Fullstack con DAM y Máster Full Stack finalizados, especialización en ecosistemas Oracle y desarrollo con IA generativa. Experiencia práctica como Junior Developer en Mercanza, donde construí módulos de un ERP modular con Kafka, FastAPI y Docker.',
+      bio2: 'Construyo proyectos propios en producción: WodRival (SaaS CrossFit activo con Next.js y Supabase) y ClaudeStat — monitor de IA en tiempo real publicado en npm. Compatible con Claude Code y OpenCode, con servidor MCP y soporte para orquestación multi-agente.',
     },
     projects: {
       label: '// proyectos',
@@ -92,19 +92,20 @@ export const translations = {
         {
           title: 'Stack técnico',
           items: [
-            'Frontend: React, TypeScript, SCSS',
-            'Backend: Python, Node.js, FastAPI',
-            'Data: Oracle SQL, PL/SQL, OCI',
-            'Herramientas: Docker, Git, Vite',
+            'Frontend: React, Next.js, TypeScript, SCSS',
+            'Backend: Python, Node.js, FastAPI, Express',
+            'Data: Oracle SQL, PL/SQL, OCI, PostgreSQL',
+            'Herramientas: Docker, Kafka, Git, Vercel',
+            'Testing: Vitest, pytest, RTL',
           ],
         },
       ],
     },
     stats: {
       items: [
-        { value: '18',  label: 'tecnologías' },
-        { value: '4',   label: 'proyectos' },
-        { value: '4',   label: 'certificaciones' },
+        { value: '30+', label: 'tecnologías' },
+        { value: '5',   label: 'proyectos' },
+        { value: '5',   label: 'certificaciones' },
         { value: '2',   label: 'idiomas' },
       ],
     },
@@ -138,8 +139,8 @@ export const translations = {
       not_available: 'Not available',
     },
     hero: {
-      title: 'Fullstack Developer',
-      description: 'I build web and mobile applications with a modern stack.',
+      title: 'Fullstack & AI Developer',
+      description: 'I build web and SaaS products with integrated AI — from prototype to production.',
       cta: 'View projects',
       aboutLabel: '// about me',
       terminal: {
@@ -160,12 +161,12 @@ export const translations = {
         gotoUnknown: (section) => `unknown section: ${section}. Use 'ls' to see available ones.`,
         opening: (target) => `→ opening ${target}...`,
       },
-      bio1: 'Developer with a foundation in Multiplatform Application Development (DAM) and Full Stack, specializing in Oracle ecosystems (SQL, OCI, EPM). Over 12 years of experience in business environments give me a different perspective on how software impacts real processes.',
-      bio2: 'Looking for a Trainee or Junior opportunity to apply my knowledge in software development and technical consulting. Immediately available, completed training, and results-oriented from day one.',
+      bio1: 'Fullstack Developer with completed DAM and Full Stack Master degrees, specializing in Oracle ecosystems and AI-assisted development. Hands-on experience as Junior Developer at Mercanza, building ERP modules with Kafka, FastAPI, and Docker.',
+      bio2: 'I build production projects: WodRival (active CrossFit SaaS with Next.js and Supabase) and ClaudeStat — a real-time AI monitor published on npm. Supports Claude Code and OpenCode, with MCP server and multi-agent orchestration tracking.',
     },
     projects: {
       label: '// projects',
-      title: 'What I have built',
+      title: "What I've built",
       github: 'View on GitHub',
       live: 'Live demo',
     },
@@ -215,19 +216,20 @@ export const translations = {
         {
           title: 'Tech stack',
           items: [
-            'Frontend: React, TypeScript, SCSS',
-            'Backend: Python, Node.js, FastAPI',
-            'Data: Oracle SQL, PL/SQL, OCI',
-            'Tools: Docker, Git, Vite',
+            'Frontend: React, Next.js, TypeScript, SCSS',
+            'Backend: Python, Node.js, FastAPI, Express',
+            'Data: Oracle SQL, PL/SQL, OCI, PostgreSQL',
+            'Tools: Docker, Kafka, Git, Vercel',
+            'Testing: Vitest, pytest, RTL',
           ],
         },
       ],
     },
     stats: {
       items: [
-        { value: '18',  label: 'technologies' },
-        { value: '4',   label: 'projects' },
-        { value: '4',   label: 'certifications' },
+        { value: '30+', label: 'technologies' },
+        { value: '5',   label: 'projects' },
+        { value: '5',   label: 'certifications' },
         { value: '2',   label: 'languages' },
       ],
     },
@@ -239,7 +241,7 @@ export const translations = {
     contact: {
       label: '// contact',
       title: "Let's talk",
-      subtitle: 'I am available for job opportunities, collaborations or just to connect.',
+      subtitle: "I'm available for job opportunities, collaborations, or simply to connect.",
       copy: 'copy',
       copied: '✓ copied',
       connection: 'open · encrypted · ready',
