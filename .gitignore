@@ -34,8 +34,13 @@ coverage/
 
 # Claude / agentes — documentación interna, no va al repo
 HANDOFF.md
+TRANSITION.md
 summary-*.md
 CLAUDE.md
 AGENTS.md
 og-image-template.html
 .engram/
+
+# OpenCode / AI tooling config — internal, not for the repo
+opencode.json
+.opencode/
