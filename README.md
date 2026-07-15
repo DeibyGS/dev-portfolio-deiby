@@ -1,90 +1,122 @@
-# dev-portfolio-deiby
+# Deiby Gorrin — Developer Portfolio
 
-Portfolio personal de Deiby Gorrin — Fullstack Developer.
+[![Live](https://img.shields.io/badge/Live-deiby.dev-00FF41?style=flat-square&logo=vercel&logoColor=white)](https://deiby.dev)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](LICENSE)
 
-## Stack
+Personal portfolio built with React 19 and Vite 8 — terminal-inspired dark theme, bilingual ES/EN, deployed on Vercel.
 
-<!-- AUTO-GENERATED -->
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| React | 18 | UI framework |
-| Vite | latest | Build tool |
-| Tailwind CSS | v3 | Styling |
-| JavaScript | ES2022 | Language |
-| devicon | CDN | Tech icons for TechStack section |
-<!-- /AUTO-GENERATED -->
+> **AI-assisted development** — built with [Claude Code](https://claude.ai/code) and [OpenCode](https://opencode.ai) as AI copilots. This project reflects how I integrate AI tooling into my day-to-day development workflow to ship faster and with higher quality.
 
-## Estructura del proyecto
+---
 
-<!-- AUTO-GENERATED -->
+## Live Demo
+
+**[deiby.dev](https://deiby.dev)**
+
+---
+
+## Features
+
+- **Terminal aesthetic** — dark matrix theme with monospace typography, animated bars and npm-style section headers
+- **Bilingual** — full ES/EN language switch via React Context, persisted in `localStorage`
+- **Smooth animations** — section transitions and list reveals powered by Framer Motion
+- **GitHub Activity** — live contribution calendar via `react-github-calendar`
+- **PDF certificates** — clickable cert cards open PDFs in a modal viewer
+- **Responsive** — mobile-first layout with Tailwind CSS v3
+- **Tested** — unit tests with Vitest + React Testing Library, coverage threshold enforced in CI
+
+---
+
+## Tech Stack
+
+| Layer | Technology | Version |
+|---|---|---|
+| UI framework | React | 19 |
+| Build tool | Vite | 8 |
+| Styling | Tailwind CSS | v3 |
+| Animation | Framer Motion | 12 |
+| Language | JavaScript (ES2022) | — |
+| Testing | Vitest + React Testing Library | 4 |
+| Icons | devicon CDN + Simple Icons | — |
+| Deploy | Vercel | — |
+
+---
+
+## Project Structure
+
+```
 src/
-  components/   # Componentes React (Navbar, Hero, About, TechStack, Education, Projects, ProjectCard, Contact, AvailabilityBadge, LangSwitch)
-  context/      # LangContext.jsx — contexto React para idioma activo
-  data/         # Datos estáticos (projects.js, i18n.js, availability.js)
-  App.jsx       # Componente raíz
-  main.jsx      # Entry point
-  index.css     # Estilos globales + Tailwind directives
-<!-- /AUTO-GENERATED -->
+  components/       # All UI components
+    TechStack.jsx   # Skills grouped in 5 sections: Languages, IA, Testing, Databases, Styles
+    Education.jsx   # Formal education, certifications (with PDFs), and courses
+    Projects.jsx    # Project cards with GitHub + live demo links
+    Hero.jsx        # Animated terminal-style intro
+    GithubActivity.jsx  # Live GitHub contribution calendar
+    Contact.jsx     # Email + LinkedIn + GitHub
+  context/
+    LangContext.jsx # ES/EN language context
+  data/
+    i18n.js         # All translations (ES/EN) — single source of truth
+    projects.js     # Project data
+  __tests__/        # Unit tests (Vitest + RTL)
+```
 
-## Secciones
+---
 
-<!-- AUTO-GENERATED -->
-- **Hero**: Presentación, avatar placeholder (iniciales DG), bio de 2 párrafos del CV real, CTA y links sociales — soporta i18n ES/EN
-- **TechStack**: 18 tecnologías con iconos devicon (CDN) organizados en grid responsive
-- **Education**: Timeline con 5 formaciones académicas + 4 certificaciones Oracle/IBM del CV real
-- **Projects**: Layout vertical — tarjetas horizontales con espacio para imagen, descripción, stack y links (GitHub + live demo opcional)
-- **Contact**: Email real (deibygorrin@gmail.com), links a LinkedIn y GitHub — soporta i18n ES/EN
-<!-- /AUTO-GENERATED -->
+## Sections
 
-## i18n
+| Section | Description |
+|---|---|
+| **Hero** | Terminal-animated intro, bio, CTA, availability badge |
+| **About** | Professional summary and background |
+| **Skills** | 33 technologies across 5 groups with 4 skill levels (advanced / intermediate / basic / learning) |
+| **Education** | Formal training + 6 certifications (Oracle, IBM, Microsoft) + 10 courses |
+| **Projects** | Portfolio of personal and professional projects |
+| **GitHub Activity** | Real-time contribution calendar |
+| **Contact** | Direct contact links |
 
-<!-- AUTO-GENERATED -->
-Soporte de idioma ES/EN implementado con React Context:
+---
 
-- **LangContext** (`src/context/LangContext.jsx`): provee el estado del idioma global
-- **i18n.js** (`src/data/i18n.js`): objeto con todas las traducciones ES/EN para cada sección
-- **LangSwitch** (`src/components/LangSwitch.jsx`): toggle ES/EN en el Navbar, persiste en `localStorage` con clave `portfolio-lang`
-- Hook de consumo: `const { lang } = useLang()` en cualquier componente
-- **Fade de idioma**: al cambiar idioma, el contenido principal hace fade-out/fade-in (150ms) via `AnimatePresence` con `key={lang}` en `MainContent`
-<!-- /AUTO-GENERATED -->
+## AI-Assisted Development
 
-## SEO
+This portfolio was built with AI copilots integrated throughout the development process:
 
-<!-- AUTO-GENERATED -->
-Meta tags configurados en `index.html`:
+| Tool | Role |
+|---|---|
+| [Claude Code](https://claude.ai/code) | Architecture decisions, component design, debugging, code review |
+| [OpenCode](https://opencode.ai) | In-editor AI assistance, refactoring, quick iterations |
 
-- `<title>` y `<meta name="description">` con descripción real del portfolio
-- **Open Graph** (`og:title`, `og:description`, `og:type`, `og:url`, `og:image`) para previews en redes sociales
-- **Twitter Card** (`twitter:card`, `twitter:title`, `twitter:description`) para Twitter/X
-- `<meta name="theme-color" content="#0D0D0D">` para mobile browsers
-- OG image placeholder en `/public/og-image.png` — reemplazar con imagen real antes del deploy
-<!-- /AUTO-GENERATED -->
+Using AI copilots reduced iteration time and allowed focus on design decisions and product quality rather than boilerplate. The result is a production-ready portfolio with tested components, a clean design system, and consistent bilingual support.
 
-## Setup local
+---
 
-<!-- AUTO-GENERATED -->
+## Local Setup
+
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone https://github.com/DeibyGS/dev-portfolio-deiby.git
 cd dev-portfolio-deiby
 
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Levantar en desarrollo
+# Start dev server
 npm run dev
 
-# Build para producción
+# Run tests
+npm test
+
+# Production build
 npm run build
 ```
-<!-- /AUTO-GENERATED -->
+
+---
 
 ## Deploy
 
-<!-- AUTO-GENERATED -->
-Listo para deploy en Vercel o GitHub Pages.
+Deployed on **Vercel** with automatic deploys on push to `main`.
 
-**Vercel** (recomendado): Conectar repositorio en vercel.com — detección automática de Vite.
-
-**GitHub Pages**: Añadir `base` en vite.config.js y configurar gh-pages.
-<!-- /AUTO-GENERATED -->
+To deploy your own fork: connect the repo at [vercel.com](https://vercel.com) — Vite is auto-detected, no additional configuration needed.
