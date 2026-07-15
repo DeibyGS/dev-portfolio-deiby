@@ -17,31 +17,23 @@ const itemVariants = {
 
 const D = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
 
-// level: 0-100
+// level: 0-100 — thresholds: ≥75 advanced · ≥55 intermediate · ≥35 basic · <35 learning
 const groups = [
   {
-    label: null,
+    label: 'Languages & Frameworks',
     items: [
       { label: 'HTML5',        src: `${D}/html5/html5-original.svg`,             level: 88 },
-      { label: 'CSS3',         src: `${D}/css3/css3-original.svg`,               level: 85 },
       { label: 'JavaScript',   src: `${D}/javascript/javascript-original.svg`,   level: 80 },
       { label: 'TypeScript',   src: `${D}/typescript/typescript-original.svg`,   level: 65 },
       { label: 'React',        src: `${D}/react/react-original.svg`,             level: 82 },
-      { label: 'React Native', src: `${D}/react/react-original.svg`,             level: 52 },
+      { label: 'React Native', src: `${D}/react/react-original.svg`,             level: 60 },
       { label: 'Next.js',      src: `${D}/nextjs/nextjs-original.svg`,           level: 65 },
-      { label: 'Tailwind',     src: `${D}/tailwindcss/tailwindcss-original.svg`, level: 45 },
-      { label: 'SCSS',         src: `${D}/sass/sass-original.svg`,               level: 80 },
       { label: 'Node.js',      src: `${D}/nodejs/nodejs-original.svg`,           level: 68 },
       { label: 'Express',      src: `${D}/express/express-original.svg`,         level: 62 },
       { label: 'Python',       src: `${D}/python/python-original.svg`,           level: 70 },
-      { label: 'FastAPI',      src: `${D}/fastapi/fastapi-original.svg`,         level: 45 },
+      { label: 'FastAPI',      src: `${D}/fastapi/fastapi-original.svg`,         level: 40 },
+      { label: 'Java',         src: `${D}/java/java-original.svg`,               level: 40 },
       { label: 'Kotlin',       src: `${D}/kotlin/kotlin-original.svg`,           level: 35 },
-      { label: 'MongoDB',      src: `${D}/mongodb/mongodb-original.svg`,         level: 62 },
-      { label: 'PostgreSQL',   src: `${D}/postgresql/postgresql-original.svg`,   level: 60 },
-      { label: 'MySQL',        src: `${D}/mysql/mysql-original.svg`,             level: 63 },
-      { label: 'Oracle SQL',   src: `${D}/oracle/oracle-original.svg`,           level: 65 },
-      { label: 'PL/SQL',       src: `${D}/oracle/oracle-original.svg`,           level: 65 },
-      { label: 'SQLite',       src: `${D}/sqlite/sqlite-original.svg`,           level: 60 },
       { label: 'Docker',       src: `${D}/docker/docker-original.svg`,           level: 58 },
       { label: 'Kafka',        src: `${D}/apachekafka/apachekafka-original.svg`, level: 40 },
       { label: 'Git',          src: `${D}/git/git-original.svg`,                 level: 80 },
@@ -50,12 +42,39 @@ const groups = [
     ],
   },
   {
+    label: 'IA',
+    items: [
+      { label: 'Claude Code',  src: 'https://cdn.simpleicons.org/anthropic/white', level: 60 },
+      { label: 'OpenCode',     src: `${D}/bash/bash-original.svg`,               level: 60 },
+    ],
+  },
+  {
     label: 'Testing',
     items: [
-      { label: 'Vitest',              src: `${D}/vitest/vitest-original.svg`,                   level: 65 },
-      { label: 'Jest',                src: `${D}/jest/jest-plain.svg`,                          level: 55 },
-      { label: 'React Test Lib',      src: `${D}/react/react-original.svg`,                     level: 60 },
-      { label: 'pytest',              src: `${D}/pytest/pytest-original.svg`,                   level: 50 },
+      { label: 'Vitest',         src: `${D}/vitest/vitest-original.svg`,  level: 65 },
+      { label: 'Jest',           src: `${D}/jest/jest-plain.svg`,          level: 55 },
+      { label: 'React Test Lib', src: `${D}/react/react-original.svg`,    level: 60 },
+      { label: 'pytest',         src: `${D}/pytest/pytest-original.svg`,  level: 50 },
+    ],
+  },
+  {
+    label: 'Databases',
+    items: [
+      { label: 'MongoDB',    src: `${D}/mongodb/mongodb-original.svg`,       level: 62 },
+      { label: 'PostgreSQL', src: `${D}/postgresql/postgresql-original.svg`, level: 60 },
+      { label: 'MySQL',      src: `${D}/mysql/mysql-original.svg`,           level: 63 },
+      { label: 'Oracle SQL', src: `${D}/oracle/oracle-original.svg`,         level: 65 },
+      { label: 'PL/SQL',     src: `${D}/oracle/oracle-original.svg`,         level: 25 },
+      { label: 'SQLite',     src: `${D}/sqlite/sqlite-original.svg`,         level: 60 },
+    ],
+  },
+  {
+    label: 'Styles',
+    items: [
+      { label: 'CSS3',      src: `${D}/css3/css3-original.svg`,               level: 85 },
+      { label: 'SCSS',      src: `${D}/sass/sass-original.svg`,               level: 80 },
+      { label: 'Tailwind',  src: `${D}/tailwindcss/tailwindcss-original.svg`, level: 40 },
+      { label: 'Bootstrap', src: `${D}/bootstrap/bootstrap-original.svg`,     level: 40 },
     ],
   },
 ]
@@ -68,13 +87,15 @@ function getBar(level) {
 function getLevelLabel(level, labels) {
   if (level >= 75) return labels.advanced
   if (level >= 55) return labels.intermediate
+  if (level >= 35) return labels.basic
   return labels.learning
 }
 
 function getLevelColor(level) {
   if (level >= 75) return 'text-matrix border-matrix/50'
   if (level >= 55) return 'text-dark-muted border-dark-border'
-  return 'text-dark-muted/60 border-dark-border/60'
+  if (level >= 35) return 'text-dark-muted/70 border-dark-border/70'
+  return 'text-dark-muted/50 border-dark-border/50'
 }
 
 function TechStack() {

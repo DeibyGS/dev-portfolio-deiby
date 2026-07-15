@@ -118,6 +118,7 @@ const certifications = [
   { pkg: 'oracle-sql-23ai',           label: 'Oracle Database 23ai SQL Certified Associate',       org: 'Oracle',    year: '2025', pdfUrl: '/OracleDatabase23aiSQL.pdf' },
   { pkg: 'oracle-oci-ai-foundations', label: 'OCI 2025 Certified AI Foundations Associate',        org: 'Oracle',    year: '2025', pdfUrl: '/OracleCloud2025AIFoundations.pdf' },
   { pkg: 'oracle-data-science',       label: 'OCI 2025 Data Science Professional',                 org: 'Oracle',    year: '2025', pdfUrl: '/OracleCloud2025DataScienceProfessional.pdf' },
+  { pkg: 'ms365-copilot-admin',       label: 'Microsoft 365 Copilot and Agent Administration Fundamentals', labelEn: 'Microsoft 365 Copilot and Agent Administration Fundamentals', org: 'Microsoft', year: '2026', pdfUrl: '/Microsoft365CopilotAgentAdmin.pdf' },
 ]
 
 function getBar(filled) {
