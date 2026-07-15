@@ -50,7 +50,7 @@ export const translations = {
       label: '// tecnologías',
       title: 'Stack tecnológico',
       packagesLoaded: (n) => `${n} paquetes cargados`,
-      levelLabels: { advanced: 'avanzado', intermediate: 'intermedio', learning: 'aprendiendo' },
+      levelLabels: { advanced: 'avanzado', intermediate: 'intermedio', basic: 'básico', learning: 'aprendiendo' },
     },
     education: {
       label: '// formación',
@@ -174,7 +174,7 @@ export const translations = {
       label: '// technologies',
       title: 'Tech stack',
       packagesLoaded: (n) => `${n} packages loaded`,
-      levelLabels: { advanced: 'advanced', intermediate: 'intermediate', learning: 'learning' },
+      levelLabels: { advanced: 'advanced', intermediate: 'intermediate', basic: 'basic', learning: 'learning' },
     },
     education: {
       label: '// education',
@@ -229,7 +229,7 @@ export const translations = {
       items: [
         { value: '30+', label: 'technologies' },
         { value: '5',   label: 'projects' },
-        { value: '5',   label: 'certifications' },
+        { value: '6',   label: 'certifications' },
         { value: '2',   label: 'languages' },
       ],
     },
