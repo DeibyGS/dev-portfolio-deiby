@@ -1,14 +1,20 @@
+<div align="center">
+
 # Deiby Gorrin — Developer Portfolio
 
+A terminal-inspired, bilingual (ES / EN) developer portfolio built with **React 19** and **Vite 8**, styled with **Tailwind CSS** and deployed on **Vercel**.
+
 [![Live](https://img.shields.io/badge/Live-deiby.dev-00FF41?style=flat-square&logo=vercel&logoColor=white)](https://deiby.dev)
+[![CI](https://github.com/DeibyGS/dev-portfolio-deiby/actions/workflows/ci.yml/badge.svg)](https://github.com/DeibyGS/dev-portfolio-deiby/actions/workflows/ci.yml)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](LICENSE)
 
-Personal portfolio built with React 19 and Vite 8 — terminal-inspired dark theme, bilingual ES/EN, deployed on Vercel.
+**Sections:** [Live Demo](#live-demo) · [Features](#features) · [Tech Stack](#tech-stack) · [Project Structure](#project-structure) · [Built with AI](#built-with-ai) · [Local Setup](#local-setup)
 
 > **AI-assisted development** — built with [Claude Code](https://claude.ai/code) and [OpenCode](https://opencode.ai) as AI copilots. This project reflects how I integrate AI tooling into my day-to-day development workflow to ship faster and with higher quality.
+
+</div>
 
 ---
 
@@ -50,7 +56,7 @@ Personal portfolio built with React 19 and Vite 8 — terminal-inspired dark the
 ```
 src/
   components/       # All UI components
-    TechStack.jsx   # Skills grouped in 5 sections: Languages, IA, Testing, Databases, Styles
+    TechStack.jsx   # Skills grouped in 5 sections: Languages, AI, Testing, Databases, Styles
     Education.jsx   # Formal education, certifications (with PDFs), and courses
     Projects.jsx    # Project cards with GitHub + live demo links
     Hero.jsx        # Animated terminal-style intro
@@ -80,7 +86,7 @@ src/
 
 ---
 
-## AI Development Benchmark
+## Built with AI
 
 This portfolio was engineered by a human developer working with AI as a **pair programming partner**. AI accelerated the design system, component generation, and iterations — architecture, UX decisions, and final acceptance stayed human.
 
@@ -103,16 +109,16 @@ This portfolio was engineered by a human developer working with AI as a **pair p
 - Models were selected per task type.
 
 <details>
-<summary><strong>Supporting metrics</strong></summary>
+<summary><strong>Tooling note</strong></summary>
 <br>
 
-| Metric | Value |
-|--------|-------|
-| AI sessions | 1 logged |
-| Measured development time | TBD — early work pre-dates session logs |
-| Primary tool | OpenCode (DeepSeek V4 Flash) |
+| Tool | Role |
+|------|------|
+| Claude Code | Design system + component generation |
+| OpenCode | Iterative pairing, refactoring, test authoring |
+| ClaudeStat | Session + activity logging for workflow transparency |
 
-_Measured with [ClaudeStat](https://github.com/DeibyGS/claudestat). Approximate values; most of the build pre-dates exhaustive session logging._
+_Measured with [ClaudeStat](https://github.com/DeibYGS/claudestat). Qualitative summary; most of the build pre-dates exhaustive session logging, so metrics are qualitative, not invented numbers._
 
 </details>
 
@@ -122,7 +128,7 @@ _Measured with [ClaudeStat](https://github.com/DeibyGS/claudestat). Approximate 
 
 ```bash
 # Clone the repository
-git clone https://github.com/DeibyGS/dev-portfolio-deiby.git
+git clone https://github.com/DeibYGGS/dev-portfolio-deiby.git
 cd dev-portfolio-deiby
 
 # Install dependencies
@@ -137,6 +143,12 @@ npm test
 # Production build
 npm run build
 ```
+
+---
+
+## License
+
+This project is **not** currently licensed — no LICENSE file is included in the repository.
 
 ---
 
