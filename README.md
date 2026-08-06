@@ -80,16 +80,41 @@ src/
 
 ---
 
-## AI-Assisted Development
+## AI Development Benchmark
 
-This portfolio was built with AI copilots integrated throughout the development process:
+This portfolio was engineered by a human developer working with AI as a **pair programming partner**. AI accelerated the design system, component generation, and iterations — architecture, UX decisions, and final acceptance stayed human.
 
-| Tool | Role |
-|---|---|
-| [Claude Code](https://claude.ai/code) | Architecture decisions, component design, debugging, code review |
-| [OpenCode](https://opencode.ai) | In-editor AI assistance, refactoring, quick iterations |
+### How we worked together
 
-Using AI copilots reduced iteration time and allowed focus on design decisions and product quality rather than boilerplate. The result is a production-ready portfolio with tested components, a clean design system, and consistent bilingual support.
+| Human-owned | AI implemented, always human-reviewed |
+|-------------|-------------------------------------|
+| Design direction & terminal aesthetic | React component generation |
+| Information architecture & sections | Framer Motion interactions, i18n plumbing |
+| Bilingual UX & copy | Refactoring, TypeScript improvements |
+| Code review & final acceptance | Test scaffolding, auxiliary scripts |
+
+**Workflow:** `Idea → Design → AI implementation → Human review → Test → Refine → Merge`
+
+### AI Development Principles
+
+- AI never made product decisions.
+- All generated code required human review.
+- Architecture was preserved over implementation speed.
+- Models were selected per task type.
+
+<details>
+<summary><strong>Supporting metrics</strong></summary>
+<br>
+
+| Metric | Value |
+|--------|-------|
+| AI sessions | 1 logged |
+| Measured development time | TBD — early work pre-dates session logs |
+| Primary tool | OpenCode (DeepSeek V4 Flash) |
+
+_Measured with [ClaudeStat](https://github.com/DeibyGS/claudestat). Approximate values; most of the build pre-dates exhaustive session logging._
+
+</details>
 
 ---
 
