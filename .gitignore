@@ -44,3 +44,6 @@ og-image-template.html
 # OpenCode / AI tooling config — internal, not for the repo
 opencode.json
 .opencode/
+
+# Parallel-session worktrees
+.worktrees/
