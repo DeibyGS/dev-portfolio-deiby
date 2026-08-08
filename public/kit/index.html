@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Do not remove: this page must not be indexed. The verification question
+     is pointless if people can find the page without the book. -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>The Claude Code Kit</title>
+<meta name="description" content="Companion materials for Claude Code from Zero.">
+
+<style>
+  :root{
+    --bg:#111110; --panel:#1a1a18; --line:#2e2e2a;
+    --ink:#f2efe9; --dim:#9a968c; --accent:#f0a028;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex; justify-content:center; padding:6vh 20px 12vh;
+  }
+  main{width:100%; max-width:560px}
+  .series{
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--accent); font-weight:700; margin:0 0 18px;
+  }
+  h1{font-size:clamp(30px,7vw,42px); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em}
+  .lede{color:var(--dim); margin:0 0 36px; font-size:17px}
+  .rule{height:2px; width:52px; background:var(--accent); margin:0 0 36px}
+
+  .panel{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:10px; padding:26px;
+  }
+  label{display:block; font-weight:600; margin:0 0 6px}
+  .hint{color:var(--dim); font-size:14px; margin:0 0 16px}
+  input{
+    width:100%; padding:13px 14px; font-size:16px;
+    background:#0d0d0c; color:var(--ink);
+    border:1px solid var(--line); border-radius:7px;
+  }
+  input:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:transparent}
+  button{
+    width:100%; margin-top:16px; padding:14px;
+    font-size:16px; font-weight:700; cursor:pointer;
+    background:var(--accent); color:#161512;
+    border:0; border-radius:7px;
+  }
+  button:hover{filter:brightness(1.08)}
+  .error{color:#f08a7a; font-size:14px; margin-top:12px; min-height:20px}
+
+  ul{padding-left:20px; margin:0 0 22px} li{margin:0 0 7px}
+  code{
+    background:#0d0d0c; border:1px solid var(--line);
+    padding:1px 6px; border-radius:4px; font-size:14px;
+  }
+  a{color:var(--accent)}
+  .cta{
+    display:block; text-align:center; text-decoration:none;
+    background:var(--accent); color:#161512; font-weight:700;
+    padding:14px; border-radius:7px; margin:6px 0 26px;
+  }
+  .foot{color:var(--dim); font-size:13px; margin-top:34px; line-height:1.7}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<main>
+
+  <p class="series">Claude Code · From Terminal to System</p>
+  <h1>The Kit</h1>
+  <p class="lede">
+    Everything shown in <em>Claude Code from Zero</em>, working: the five
+    skills, the templates, the printable checklists, the twenty instructions,
+    and the document folders for the exercises.
+  </p>
+  <div class="rule"></div>
+
+  <!-- ── Gate ─────────────────────────────────────────────────────── -->
+  <section id="gate" class="panel">
+    <label for="answer">One question from the book</label>
+    <p class="hint">
+      How many files were in the Downloads folder in chapter&nbsp;1?
+    </p>
+    <input id="answer" type="text" inputmode="numeric" autocomplete="off"
+           placeholder="A number" aria-describedby="err">
+    <button id="go" type="button">Get the kit</button>
+    <p class="error" id="err" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- ── Reward ───────────────────────────────────────────────────── -->
+  <section id="reward" class="panel hidden">
+    <h2 style="margin:0 0 16px;font-size:22px">Here it is</h2>
+
+    <!-- Served from the portfolio repo: public/files/claude-code-kit.zip -->
+    <a class="cta" id="download" href="https://deiby.dev/files/claude-code-kit.zip">
+      Download the kit
+    </a>
+
+    <p style="margin:0 0 10px"><strong>Install the skills:</strong></p>
+    <ul>
+      <li><code>./install.sh --dry-run</code> — see what would happen</li>
+      <li><code>./install.sh level-1</code> — install the five from the book</li>
+      <li>Then <code>/skills</code> in Claude Code to confirm they loaded</li>
+    </ul>
+
+    <p style="margin:0 0 10px"><strong>When something changes.</strong></p>
+    <p class="hint">
+      Claude Code changes fast, often weekly. The kit is where corrections land
+      first, so when something in the book stops matching what you see on
+      screen, come back to this page and download it again. The archive is
+      always the current one.
+    </p>
+  </section>
+
+  <p class="foot">
+    Trouble getting in? The answer is a three-digit number and it's in the
+    worked example in chapter&nbsp;1.<br>
+    Something not working? Send your <code>claude --version</code> output and
+    what you ran — that's the most useful thing a reader can send.<br><br>
+    Independent publication. Not affiliated with, authorised by, or endorsed by
+    Anthropic.
+  </p>
+
+</main>
+
+<script>
+  // Client-side only, and deliberately so. This is friction against casual
+  // copying, not security — anyone determined gets in regardless, which is
+  // true of every book bonus ever shipped.
+  var ANSWER = "334";
+
+  var gate = document.getElementById('gate');
+  var reward = document.getElementById('reward');
+  var input = document.getElementById('answer');
+  var err = document.getElementById('err');
+
+  function attempt() {
+    var given = input.value.replace(/[^0-9]/g, '');
+    if (given === ANSWER) {
+      try { localStorage.setItem('cc-kit', '1'); } catch (e) {}
+      gate.classList.add('hidden');
+      reward.classList.remove('hidden');
+      reward.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      err.textContent = given
+        ? "Not that one. It's the file count in the chapter 1 example."
+        : "Enter the number of files.";
+      input.focus();
+    }
+  }
+
+  document.getElementById('go').addEventListener('click', attempt);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') attempt();
+  });
+
+  // Don't ask twice on the same device.
+  try {
+    if (localStorage.getItem('cc-kit') === '1') {
+      gate.classList.add('hidden');
+      reward.classList.remove('hidden');
+    }
+  } catch (e) {}
+</script>
+</body>
+</html>
