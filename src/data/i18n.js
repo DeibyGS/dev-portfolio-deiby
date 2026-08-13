@@ -16,7 +16,7 @@ export const translations = {
     },
     hero: {
       title: 'Fullstack & AI Developer',
-      description: 'Construyo productos web y SaaS con IA integrada — del prototipo a producción.',
+      description: 'Construyo SaaS y herramientas de IA — del prototipo a producción.',
       cta: 'Ver proyectos',
       aboutLabel: '// sobre mí',
       terminal: {
@@ -38,7 +38,7 @@ export const translations = {
         opening: (target) => `→ abriendo ${target}...`,
       },
       bio1: 'Desarrollador Fullstack con DAM y Máster Full Stack finalizados, especialización en ecosistemas Oracle y desarrollo con IA generativa. Experiencia práctica como Junior Developer en Mercanza, donde construí módulos de un ERP modular con Kafka, FastAPI y Docker.',
-      bio2: 'Construyo proyectos propios en producción: WodRival (SaaS CrossFit activo con Next.js y Supabase) y ClaudeStat — monitor de IA en tiempo real publicado en npm. Compatible con Claude Code y OpenCode, con servidor MCP y soporte para orquestación multi-agente.',
+      bio2: 'Construyo proyectos propios en producción: WodRival (plataforma de fitness competitivo con temática vikinga, en Next.js y Supabase) y ClaudeStat — monitor de IA en tiempo real publicado en npm. Compatible con Claude Code y OpenCode, con servidor MCP y soporte para orquestación multi-agente.',
     },
     projects: {
       label: '// proyectos',
@@ -105,7 +105,7 @@ export const translations = {
       items: [
         { value: '30+', label: 'tecnologías' },
         { value: '5',   label: 'proyectos' },
-        { value: '5',   label: 'certificaciones' },
+        { value: '7',   label: 'certificaciones' },
         { value: '2',   label: 'idiomas' },
       ],
     },
@@ -140,7 +140,7 @@ export const translations = {
     },
     hero: {
       title: 'Fullstack & AI Developer',
-      description: 'I build web and SaaS products with integrated AI — from prototype to production.',
+      description: 'I build SaaS products and AI tools — from prototype to production.',
       cta: 'View projects',
       aboutLabel: '// about me',
       terminal: {
@@ -162,7 +162,7 @@ export const translations = {
         opening: (target) => `→ opening ${target}...`,
       },
       bio1: 'Fullstack Developer with completed DAM and Full Stack Master degrees, specializing in Oracle ecosystems and AI-assisted development. Hands-on experience as Junior Developer at Mercanza, building ERP modules with Kafka, FastAPI, and Docker.',
-      bio2: 'I build production projects: WodRival (active CrossFit SaaS with Next.js and Supabase) and ClaudeStat — a real-time AI monitor published on npm. Supports Claude Code and OpenCode, with MCP server and multi-agent orchestration tracking.',
+      bio2: 'I build production projects: WodRival (Viking-themed competitive fitness platform built with Next.js and Supabase) and ClaudeStat — a real-time AI monitor published on npm. Supports Claude Code and OpenCode, with MCP server and multi-agent orchestration tracking.',
     },
     projects: {
       label: '// projects',
@@ -229,7 +229,7 @@ export const translations = {
       items: [
         { value: '30+', label: 'technologies' },
         { value: '5',   label: 'projects' },
-        { value: '6',   label: 'certifications' },
+        { value: '7',   label: 'certifications' },
         { value: '2',   label: 'languages' },
       ],
     },
