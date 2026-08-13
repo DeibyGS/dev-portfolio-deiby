@@ -24,6 +24,29 @@ A terminal-inspired, bilingual (ES / EN) developer portfolio built with **React 
 
 ---
 
+## ⛔ Two paths that cannot be removed
+
+`public/kit/index.html` → `deiby.dev/kit`
+`public/files/claude-code-kit.zip` → the archive that page serves
+
+**Do not delete, rename or move them** — not in a redesign, not while tidying
+`public/`.
+
+`https://deiby.dev/kit` is **printed inside a book sold on Amazon**. Buyers
+type it to get the companion kit they paid for. A printed page cannot be
+edited after the fact: if this route stops answering, every buyer hits a 404,
+there is no way to notify them, and the first sign of it is a one-star review.
+
+The page is `noindex` and deliberately unlinked from the site — it is reachable
+only by typing the URL, which is the whole design. It is self-contained plain
+HTML on purpose; don't fold it into the React app.
+
+To update the archive, rebuild it with `tools/build-kit.sh` in the
+`ebooks-claude-code` repository and copy it here. It went stale once and left
+the book and the kit disagreeing about a safety rule.
+
+---
+
 ## Features
 
 - **Terminal aesthetic** — dark matrix theme with monospace typography, animated bars and npm-style section headers
