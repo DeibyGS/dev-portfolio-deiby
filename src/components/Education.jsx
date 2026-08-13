@@ -21,8 +21,19 @@ const education = [
 
 const courses = [
   {
+    pkg: 'bejob-ibm-python-avanzado',
+    version: '2026.1',
+    hours: 86,
+    title: 'Curso Certificado de Python Avanzado orientado al Desarrollo Backend',
+    titleEn: 'Advanced Python Course focused on Backend Development',
+    institution: 'BeJob · IBM SkillsBuild',
+    inProgress: false,
+    bar: 10,
+  },
+  {
     pkg: 'bejob-ibm-ia-generativa',
     version: '2026.1',
+    hours: 70,
     title: 'Certificado de Usos Profesionales de la IA Generativa',
     titleEn: 'Professional Uses of Generative AI Certificate',
     institution: 'BeJob · IBM',
@@ -32,6 +43,7 @@ const courses = [
   {
     pkg: 'oracle-sql-plsql',
     version: '2025.2',
+    hours: 135,
     title: 'Desarrollador Oracle SQL-PL/SQL',
     titleEn: 'Oracle SQL-PL/SQL Developer',
     institution: 'Cas-Training · Madrid',
@@ -41,6 +53,7 @@ const courses = [
   {
     pkg: 'oracle-epm',
     version: '2025.1',
+    hours: 95,
     title: 'Especialista en informes empresariales Oracle EPM',
     titleEn: 'Oracle EPM Business Reports Specialist',
     institution: 'Cas-Training · Madrid',
@@ -50,6 +63,7 @@ const courses = [
   {
     pkg: 'web-ifcd0110',
     version: '2025.0',
+    hours: 480,
     title: 'Confección y publicación de páginas web (IFCD0110)',
     titleEn: 'Web Page Creation and Publishing (IFCD0110)',
     institution: 'Dabo Consulting',
@@ -59,6 +73,7 @@ const courses = [
   {
     pkg: 'udemy-master-js',
     version: '2025.1',
+    hours: 30,
     title: 'Máster en JavaScript',
     titleEn: 'JavaScript Master Course',
     institution: 'Udemy',
@@ -68,6 +83,7 @@ const courses = [
   {
     pkg: 'udemy-master-ia-2026',
     version: '2026.1',
+    hours: 48,
     title: 'Máster en Herramientas de Inteligencia Artificial 2026',
     titleEn: 'Master Course in AI Tools 2026',
     institution: 'Udemy',
@@ -77,6 +93,7 @@ const courses = [
   {
     pkg: 'udemy-ia-total',
     version: '2026.1',
+    hours: 25,
     title: 'Inteligencia artificial total: ChatGPT, Claude, Gemini y más',
     titleEn: 'Complete Artificial Intelligence: ChatGPT, Claude, Gemini, and More',
     institution: 'Udemy',
@@ -86,6 +103,7 @@ const courses = [
   {
     pkg: 'udemy-n8n-make-zapier',
     version: '2026.1',
+    hours: 10,
     title: 'Curso n8n: Agentes de IA con Make y Zapier',
     titleEn: 'n8n Course: AI Agents with Make and Zapier',
     institution: 'Udemy',
@@ -95,6 +113,7 @@ const courses = [
   {
     pkg: 'udemy-prompt-eng',
     version: '2026.1',
+    hours: 9,
     title: 'Prompt Engineering para IA Generativa A-Z',
     titleEn: 'Prompt Engineering for Generative AI A-Z',
     institution: 'Udemy',
@@ -104,6 +123,7 @@ const courses = [
   {
     pkg: 'udemy-ia-generativa',
     version: '2026.1',
+    hours: 22,
     title: 'Curso Completo de IA Generativa: ChatGPT, Midjourney y Más',
     titleEn: 'Complete Generative AI Course: ChatGPT, Midjourney, and More',
     institution: 'Udemy',
@@ -119,6 +139,7 @@ const certifications = [
   { pkg: 'oracle-oci-ai-foundations', label: 'OCI 2025 Certified AI Foundations Associate',        org: 'Oracle',    year: '2025', pdfUrl: '/OracleCloud2025AIFoundations.pdf' },
   { pkg: 'oracle-data-science',       label: 'OCI 2025 Data Science Professional',                 org: 'Oracle',    year: '2025', pdfUrl: '/OracleCloud2025DataScienceProfessional.pdf' },
   { pkg: 'ms365-copilot-admin',       label: 'Microsoft 365 Copilot and Agent Administration Fundamentals', labelEn: 'Microsoft 365 Copilot and Agent Administration Fundamentals', org: 'Microsoft', year: '2026', pdfUrl: '/Microsoft365CopilotAgentAdmin.pdf' },
+  { pkg: 'ai-engineering',            label: 'Máster en AI Engineer Production-Ready',             labelEn: "AI Engineer Production-Ready Master's Program", org: 'The Power', year: '2026', pdfUrl: null, inProgress: true },
 ]
 
 function getBar(filled) {
@@ -133,7 +154,7 @@ function CourseList({ items, lang }) {
       initial="hidden"
       animate="visible"
     >
-      {items.map(({ pkg, version, title, titleEn, institution, inProgress, bar }) => (
+      {items.map(({ pkg, version, hours, title, titleEn, institution, inProgress, bar }) => (
         <motion.div key={pkg} variants={itemVariants} className="flex flex-col gap-1">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-mono text-xs text-matrix shrink-0">
@@ -143,6 +164,9 @@ function CourseList({ items, lang }) {
               {pkg}
               <span className="text-dark-muted">@{version}</span>
             </span>
+            {hours && (
+              <span className="font-mono text-xs text-matrix/70 shrink-0">[{hours}h]</span>
+            )}
             <span className="font-mono text-xs text-matrix/70 tracking-tighter hidden sm:block">
               {getBar(bar)}
             </span>
@@ -240,7 +264,14 @@ function Education() {
                             <span className="font-mono text-xs text-matrix shrink-0">[cert]</span>
                             <span className="font-mono text-xs text-dark-text shrink-0 w-44 truncate">{cert.pkg}</span>
                             <span className="font-mono text-xs text-dark-muted shrink-0 hidden sm:block w-24">{cert.org} · {cert.year}</span>
-                            <span className="font-mono text-xs text-matrix shrink-0">{t.verified}</span>
+                            {cert.inProgress ? (
+                              <span className="font-mono text-xs border border-matrix text-matrix px-1 shrink-0 flex items-center gap-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-matrix animate-pulse inline-block" />
+                                {lang === 'en' ? 'in progress' : 'en curso'}
+                              </span>
+                            ) : (
+                              <span className="font-mono text-xs text-matrix shrink-0">{t.verified}</span>
+                            )}
                           </div>
                         )}
                         <div className="pl-6 pt-0.5">
