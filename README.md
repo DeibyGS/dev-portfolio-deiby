@@ -24,17 +24,6 @@ A terminal-inspired, bilingual (ES / EN) developer portfolio built with **React 
 
 ---
 
-## ⛔ Two paths that cannot be removed
-
-`public/kit/index.html` → `deiby.dev/kit`
-`public/files/claude-code-kit.zip` → the archive that page serves
-
-**Do not delete, rename or move them** — not in a redesign, not while tidying
-`public/`. This URL is printed inside a published book; buyers rely on it
-resolving indefinitely, and a 404 here cannot be walked back.
-
----
-
 ## Features
 
 - **Terminal aesthetic** — dark matrix theme with monospace typography, animated bars and npm-style section headers
