@@ -30,20 +30,8 @@ A terminal-inspired, bilingual (ES / EN) developer portfolio built with **React 
 `public/files/claude-code-kit.zip` → the archive that page serves
 
 **Do not delete, rename or move them** — not in a redesign, not while tidying
-`public/`.
-
-`https://deiby.dev/kit` is **printed inside a book sold on Amazon**. Buyers
-type it to get the companion kit they paid for. A printed page cannot be
-edited after the fact: if this route stops answering, every buyer hits a 404,
-there is no way to notify them, and the first sign of it is a one-star review.
-
-The page is `noindex` and deliberately unlinked from the site — it is reachable
-only by typing the URL, which is the whole design. It is self-contained plain
-HTML on purpose; don't fold it into the React app.
-
-To update the archive, rebuild it with `tools/build-kit.sh` in the
-`ebooks-claude-code` repository and copy it here. It went stale once and left
-the book and the kit disagreeing about a safety rule.
+`public/`. This URL is printed inside a published book; buyers rely on it
+resolving indefinitely, and a 404 here cannot be walked back.
 
 ---
 
@@ -102,7 +90,7 @@ src/
 | **Hero** | Terminal-animated intro, bio, CTA, availability badge |
 | **About** | Professional summary and background |
 | **Skills** | 33 technologies across 5 groups with 4 skill levels (advanced / intermediate / basic / learning) |
-| **Education** | Formal training + 6 certifications (Oracle, IBM, Microsoft) + 10 courses |
+| **Education** | Formal training + 7 certifications (Oracle, IBM, Microsoft, The Power) + 11 courses |
 | **Projects** | Portfolio of personal and professional projects |
 | **GitHub Activity** | Real-time contribution calendar |
 | **Contact** | Direct contact links |
@@ -141,7 +129,7 @@ This portfolio was engineered by a human developer working with AI as a **pair p
 | OpenCode | Iterative pairing, refactoring, test authoring |
 | ClaudeStat | Session + activity logging for workflow transparency |
 
-_Measured with [ClaudeStat](https://github.com/DeibYGS/claudestat). Qualitative summary; most of the build pre-dates exhaustive session logging, so metrics are qualitative, not invented numbers._
+_Measured with [ClaudeStat](https://github.com/DeibyGS/claudestat). Qualitative summary; most of the build pre-dates exhaustive session logging, so metrics are qualitative, not invented numbers._
 
 </details>
 
@@ -151,7 +139,7 @@ _Measured with [ClaudeStat](https://github.com/DeibYGS/claudestat). Qualitative 
 
 ```bash
 # Clone the repository
-git clone https://github.com/DeibYGGS/dev-portfolio-deiby.git
+git clone https://github.com/DeibyGS/dev-portfolio-deiby.git
 cd dev-portfolio-deiby
 
 # Install dependencies
