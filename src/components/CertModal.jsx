@@ -2,9 +2,12 @@ import { useEffect } from 'react'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 
+const IMAGE_EXTENSIONS = /\.(jpe?g|png|webp|gif)$/i
+
 function CertModal({ cert, onClose }) {
   const { lang } = useLang()
   const t = translations[lang].certModal
+  const isImage = IMAGE_EXTENSIONS.test(cert.pdfUrl)
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', handleKey)
@@ -39,7 +42,7 @@ function CertModal({ cert, onClose }) {
               href={cert.pdfUrl}
               download
               className="font-mono text-xs text-dark-muted hover:text-matrix transition-colors duration-150 flex items-center gap-1"
-              title="Descargar PDF"
+              title={t.download}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -58,12 +61,20 @@ function CertModal({ cert, onClose }) {
           </div>
         </div>
 
-        <div className="flex-1 overflow-hidden">
-          <iframe
-            src={cert.pdfUrl}
-            title={cert.name}
-            className="w-full h-full"
-          />
+        <div className="flex-1 overflow-hidden flex items-center justify-center bg-dark-bg">
+          {isImage ? (
+            <img
+              src={cert.pdfUrl}
+              alt={cert.name}
+              className="max-w-full max-h-full object-contain"
+            />
+          ) : (
+            <iframe
+              src={cert.pdfUrl}
+              title={cert.name}
+              className="w-full h-full"
+            />
+          )}
         </div>
 
         <div className="border-t border-dark-border px-4 py-2 shrink-0 flex items-center justify-between">
