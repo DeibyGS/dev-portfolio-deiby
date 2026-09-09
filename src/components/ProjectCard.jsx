@@ -4,7 +4,7 @@ const githubIcon = (
   </svg>
 )
 
-function ProjectCard({ project, lang, featured }) {
+function ProjectCard({ project, lang }) {
   const { name, description, descriptionEn, stack, githubUrl, githubPrivate, liveUrl, imageUrl, inProgress, evidence } = project
   const desc = lang === 'en' && descriptionEn ? descriptionEn : description
   const privateLabel = lang === 'en' ? 'private — available on request' : 'privado — disponible bajo petición'
