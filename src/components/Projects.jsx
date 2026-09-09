@@ -49,12 +49,11 @@ function Projects() {
                 <motion.div
                   key={project.id}
                   variants={itemVariants}
-                  className={index === 0 ? 'md:col-span-2' : ''}
+                  className={index === 0 || index === projects.length - 1 ? 'md:col-span-2' : ''}
                 >
                   <ProjectCard
                     project={project}
                     lang={lang}
-                    featured={index === 0}
                   />
                 </motion.div>
               ))}
