@@ -39,6 +39,7 @@ const courses = [
     institution: 'BeJob · IBM',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/Usos_Profesionales_IA_Generativa.pdf',
   },
   {
     pkg: 'oracle-sql-plsql',
@@ -146,7 +147,7 @@ function getBar(filled) {
   return '█'.repeat(filled) + '░'.repeat(10 - filled)
 }
 
-function CourseList({ items, lang }) {
+function CourseList({ items, lang, onOpenPdf, viewPdfLabel }) {
   return (
     <motion.div
       className="px-5 py-5 flex flex-col gap-4"
@@ -154,7 +155,7 @@ function CourseList({ items, lang }) {
       initial="hidden"
       animate="visible"
     >
-      {items.map(({ pkg, version, hours, title, titleEn, institution, inProgress, bar }) => (
+      {items.map(({ pkg, version, hours, title, titleEn, institution, inProgress, bar, pdfUrl }) => (
         <motion.div key={pkg} variants={itemVariants} className="flex flex-col gap-1">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-mono text-xs text-matrix shrink-0">
@@ -175,6 +176,19 @@ function CourseList({ items, lang }) {
                 <span className="w-1.5 h-1.5 rounded-full bg-matrix animate-pulse inline-block" />
                 {lang === 'en' ? 'in progress' : 'en curso'}
               </span>
+            )}
+            {pdfUrl && (
+              <button
+                onClick={() => onOpenPdf({
+                  name: lang === 'en' && titleEn ? titleEn : title,
+                  org: institution,
+                  year: version,
+                  pdfUrl,
+                })}
+                className="font-mono text-xs text-matrix hover:text-matrix/70 transition-colors duration-150 ml-auto shrink-0 flex items-center gap-1"
+              >
+                {viewPdfLabel} <span>↗</span>
+              </button>
             )}
           </div>
           <div className="pl-6 flex flex-col gap-0.5">
@@ -300,7 +314,7 @@ function Education() {
               <AnimatePresence initial={false}>
               {!collapsedCourses && (
               <motion.div key="courses-content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }} style={{ overflow: 'hidden' }}>
-                <CourseList items={courses} lang={lang} />
+                <CourseList items={courses} lang={lang} onOpenPdf={setSelectedCert} viewPdfLabel={t.viewPdf} />
                 <div className="px-5 py-3 border-t border-dark-border">
                   <span className="font-mono text-xs text-matrix">✓ </span>
                   <span className="font-mono text-xs text-dark-muted">

@@ -17,11 +17,11 @@ describe('Hero', () => {
     expect(heading).toHaveTextContent('Deiby Gorrin')
   })
 
-  it('shows "Fullstack & AI Developer" in terminal block', () => {
+  it('shows "Fullstack Developer | AI Developer Tooling" in terminal block', () => {
     renderWithLang(<Hero />)
-    // role line: `role: "Fullstack & AI Developer"`
+    // role line: `role: "Fullstack Developer | AI Developer Tooling"`
     expect(
-      screen.getByText((content) => content.includes('Fullstack & AI Developer'))
+      screen.getByText((content) => content.includes('Fullstack Developer | AI Developer Tooling'))
     ).toBeInTheDocument()
   })
 
