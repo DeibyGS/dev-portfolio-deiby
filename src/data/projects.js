@@ -11,6 +11,17 @@ export const projects = [
     evidence: ['npm v1.22.0'],
   },
   {
+    id: 6,
+    name: 'applyr',
+    description: 'CLI open source diseñada para ser operada por agentes de IA (Claude Code, Cursor, OpenCode): puntúa ofertas de trabajo (0-100 de compatibilidad), detecta duplicados y genera CVs ATS-safe, con un dashboard web local opcional. Todo local-first sobre SQLite.',
+    descriptionEn: 'Open source CLI built natively for AI coding agents (Claude Code, Cursor, OpenCode): scores job offers (0-100 compatibility), detects duplicates, and generates ATS-safe CVs, with an optional local web dashboard. Local-first over SQLite.',
+    stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'SQLite'],
+    githubUrl: 'https://github.com/DeibyGS/applyr',
+    liveUrl: 'https://pypi.org/project/applyr/',
+    imageUrl: '/images/applyr-cover.webp',
+    evidence: ['PyPI v1.13.4'],
+  },
+  {
     id: 5,
     name: 'WodRival',
     description: 'Plataforma competitiva de fitness funcional con temática vikinga: Battles (retos tipo WOD), Clanes liderados por un Jarl, duelos 1vs1 (Holmgang) y ranking global Valhalla. En desarrollo activo.',

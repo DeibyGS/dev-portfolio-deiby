@@ -105,7 +105,7 @@ export const translations = {
     stats: {
       items: [
         { value: '30+', label: 'tecnologías' },
-        { value: '5',   label: 'proyectos' },
+        { value: '6',   label: 'proyectos' },
         { value: '7',   label: 'certificaciones' },
         { value: '2',   label: 'idiomas' },
       ],
@@ -230,7 +230,7 @@ export const translations = {
     stats: {
       items: [
         { value: '30+', label: 'technologies' },
-        { value: '5',   label: 'projects' },
+        { value: '6',   label: 'projects' },
         { value: '7',   label: 'certifications' },
         { value: '2',   label: 'languages' },
       ],
