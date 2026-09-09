@@ -29,6 +29,7 @@ const courses = [
     institution: 'BeJob · IBM SkillsBuild',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/PythonAvanzadoBackend.pdf',
   },
   {
     pkg: 'bejob-ibm-ia-generativa',
@@ -50,6 +51,7 @@ const courses = [
     institution: 'Cas-Training · Madrid',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/OracleSQLPLSQLDiploma.pdf',
   },
   {
     pkg: 'oracle-epm',
@@ -60,6 +62,7 @@ const courses = [
     institution: 'Cas-Training · Madrid',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/OracleEPMReporteNarrativo.pdf',
   },
   {
     pkg: 'web-ifcd0110',
@@ -80,6 +83,7 @@ const courses = [
     institution: 'Udemy',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/MasterJavaScript.pdf',
   },
   {
     pkg: 'udemy-master-ia-2026',
@@ -90,6 +94,7 @@ const courses = [
     institution: 'Udemy',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/MasterHerramientasIA2026.jpg',
   },
   {
     pkg: 'udemy-ia-total',
@@ -100,6 +105,7 @@ const courses = [
     institution: 'Udemy',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/InteligenciaArtificialTotal.jpg',
   },
   {
     pkg: 'udemy-n8n-make-zapier',
@@ -110,6 +116,7 @@ const courses = [
     institution: 'Udemy',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/CursoN8nMakeZapier.jpg',
   },
   {
     pkg: 'udemy-prompt-eng',
@@ -120,6 +127,7 @@ const courses = [
     institution: 'Udemy',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/PromptEngineeringIAGenerativa.jpg',
   },
   {
     pkg: 'udemy-ia-generativa',
@@ -130,6 +138,7 @@ const courses = [
     institution: 'Udemy',
     inProgress: false,
     bar: 10,
+    pdfUrl: '/CursoCompletoIAGenerativa.jpg',
   },
 ]
 
