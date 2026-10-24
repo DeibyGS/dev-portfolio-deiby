@@ -17,8 +17,18 @@ const education = [
     inProgress: false,
     bar: 10,
   },
+  {
+    pkg: 'master-ai-engineer',
+    version: '2026',
+    title: 'Máster en AI Engineer',
+    titleEn: "Master's in AI Engineering",
+    institution: 'The Power · Madrid',
+    inProgress: true,
+  },
 ]
 
+// Cursos visibles por defecto: solo Oracle, IBM y Bejob/Python (según nota del CV).
+// El resto (Udemy, Dabo) queda plegado detrás del botón "otros cursos".
 const courses = [
   {
     pkg: 'bejob-ibm-python-avanzado',
@@ -28,6 +38,7 @@ const courses = [
     titleEn: 'Advanced Python Course focused on Backend Development',
     institution: 'BeJob · IBM SkillsBuild',
     inProgress: false,
+    featured: true,
     bar: 10,
     pdfUrl: '/PythonAvanzadoBackend.pdf',
   },
@@ -39,6 +50,7 @@ const courses = [
     titleEn: 'Professional Uses of Generative AI Certificate',
     institution: 'BeJob · IBM',
     inProgress: false,
+    featured: true,
     bar: 10,
     pdfUrl: '/Usos_Profesionales_IA_Generativa.pdf',
   },
@@ -50,6 +62,7 @@ const courses = [
     titleEn: 'Oracle SQL-PL/SQL Developer',
     institution: 'Cas-Training · Madrid',
     inProgress: false,
+    featured: true,
     bar: 10,
     pdfUrl: '/OracleSQLPLSQLDiploma.pdf',
   },
@@ -61,6 +74,7 @@ const courses = [
     titleEn: 'Oracle EPM Business Reports Specialist',
     institution: 'Cas-Training · Madrid',
     inProgress: false,
+    featured: true,
     bar: 10,
     pdfUrl: '/OracleEPMReporteNarrativo.pdf',
   },
@@ -142,14 +156,16 @@ const courses = [
   },
 ]
 
+const featuredCourses = courses.filter((course) => course.featured)
+const otherCourses = courses.filter((course) => !course.featured)
+
 const certifications = [
-  { pkg: 'fullstack-master',          label: 'Máster Desarrollo de Aplicaciones Web',              labelEn: "Master's Degree in Web Application Development", org: 'The Power', year: '2025', pdfUrl: null },
+  { pkg: 'fullstack-master',          label: 'Máster Desarrollo de Aplicaciones Web',              labelEn: "Master's Degree in Web Application Development", org: 'The Power', year: '2026', pdfUrl: null },
   { pkg: 'ibm-ai-fundamentals',       label: 'Artificial Intelligence Fundamentals',               org: 'IBM',       year: '2026', pdfUrl: '/IBM_Artificial_Intelligence_Fundamentals.pdf' },
   { pkg: 'oracle-sql-23ai',           label: 'Oracle Database 23ai SQL Certified Associate',       org: 'Oracle',    year: '2025', pdfUrl: '/OracleDatabase23aiSQL.pdf' },
   { pkg: 'oracle-oci-ai-foundations', label: 'OCI 2025 Certified AI Foundations Associate',        org: 'Oracle',    year: '2025', pdfUrl: '/OracleCloud2025AIFoundations.pdf' },
   { pkg: 'oracle-data-science',       label: 'OCI 2025 Data Science Professional',                 org: 'Oracle',    year: '2025', pdfUrl: '/OracleCloud2025DataScienceProfessional.pdf' },
   { pkg: 'ms365-copilot-admin',       label: 'Microsoft 365 Copilot and Agent Administration Fundamentals', labelEn: 'Microsoft 365 Copilot and Agent Administration Fundamentals', org: 'Microsoft', year: '2026', pdfUrl: '/Microsoft365CopilotAgentAdmin.pdf' },
-  { pkg: 'ai-engineering',            label: 'Máster en AI Engineer Production-Ready',             labelEn: "AI Engineer Production-Ready Master's Program", org: 'The Power', year: '2026', pdfUrl: null, inProgress: true },
 ]
 
 function getBar(filled) {
@@ -177,9 +193,11 @@ function CourseList({ items, lang, onOpenPdf, viewPdfLabel }) {
             {hours && (
               <span className="font-mono text-xs text-matrix/70 shrink-0">[{hours}h]</span>
             )}
-            <span className="font-mono text-xs text-matrix/70 tracking-tighter hidden sm:block">
-              {getBar(bar)}
-            </span>
+            {bar && (
+              <span className="font-mono text-xs text-matrix/70 tracking-tighter hidden sm:block">
+                {getBar(bar)}
+              </span>
+            )}
             {inProgress && (
               <span className="font-mono text-xs border border-matrix text-matrix px-1 shrink-0 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-matrix animate-pulse inline-block" />
@@ -219,6 +237,7 @@ function Education() {
   const [collapsedEdu, setCollapsedEdu]       = useState(false)
   const [collapsedCourses, setCollapsedCourses] = useState(false)
   const [collapsedCerts, setCollapsedCerts]   = useState(false)
+  const [showOthers, setShowOthers]           = useState(false)
 
   return (
     <section id="education" className="bg-dark-bg py-16 md:py-24 px-4 sm:px-6 lg:px-8">
@@ -323,7 +342,26 @@ function Education() {
               <AnimatePresence initial={false}>
               {!collapsedCourses && (
               <motion.div key="courses-content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }} style={{ overflow: 'hidden' }}>
-                <CourseList items={courses} lang={lang} onOpenPdf={setSelectedCert} viewPdfLabel={t.viewPdf} />
+                <CourseList items={featuredCourses} lang={lang} onOpenPdf={setSelectedCert} viewPdfLabel={t.viewPdf} />
+
+                {/* Resto de cursos (Udemy, Dabo) — plegados por defecto */}
+                <div className="px-5 border-t border-dark-border">
+                  <button
+                    type="button"
+                    onClick={() => setShowOthers(v => !v)}
+                    aria-expanded={showOthers}
+                    className="w-full text-left font-mono text-xs text-dark-muted hover:text-matrix transition-colors duration-150 py-3 flex items-center gap-2"
+                  >
+                    <span className="text-matrix">{showOthers ? '[-]' : '[+]'}</span>
+                    {showOthers ? t.hideOtherCourses : t.showOtherCourses(otherCourses.length)}
+                  </button>
+                </div>
+                {showOthers && (
+                  <div className="border-t border-dark-border">
+                    <CourseList items={otherCourses} lang={lang} onOpenPdf={setSelectedCert} viewPdfLabel={t.viewPdf} />
+                  </div>
+                )}
+
                 <div className="px-5 py-3 border-t border-dark-border">
                   <span className="font-mono text-xs text-matrix">✓ </span>
                   <span className="font-mono text-xs text-dark-muted">

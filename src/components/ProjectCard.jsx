@@ -5,8 +5,9 @@ const githubIcon = (
 )
 
 function ProjectCard({ project, lang }) {
-  const { name, description, descriptionEn, stack, githubUrl, githubPrivate, liveUrl, imageUrl, inProgress, evidence } = project
+  const { name, description, descriptionEn, stack, githubUrl, githubPrivate, liveUrl, imageUrl, inProgress, evidence, evidenceEn } = project
   const desc = lang === 'en' && descriptionEn ? descriptionEn : description
+  const badges = lang === 'en' && evidenceEn ? evidenceEn : evidence
   const privateLabel = lang === 'en' ? 'private — available on request' : 'privado — disponible bajo petición'
 
   return (
@@ -84,9 +85,9 @@ function ProjectCard({ project, lang }) {
       <p className="text-sm text-dark-muted leading-relaxed flex-1">{desc}</p>
 
       {/* Evidence badges — verifiable claims (npm version, live metrics, etc.) */}
-      {evidence?.length > 0 && (
+      {badges?.length > 0 && (
         <div className="flex flex-wrap gap-2">
-          {evidence.map((item) => (
+          {badges.map((item) => (
             <span key={item}
               className="font-mono text-xs border border-matrix/40 text-matrix px-2 py-0.5">
               ✓ {item}

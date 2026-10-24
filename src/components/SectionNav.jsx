@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLang } from '../context/LangContext'
 import { translations } from '../data/i18n'
 
-const SECTION_IDS = ['about', 'projects', 'education', 'skills', 'activity', 'contact']
+const SECTION_IDS = ['about', 'experience', 'projects', 'education', 'skills', 'activity', 'contact']
 
 function SectionNav() {
   const { lang } = useLang()
@@ -13,6 +13,7 @@ function SectionNav() {
   // Etiquetas traducidas alineadas con los IDs de cada sección
   const sections = [
     { id: 'about',    label: nav.about },
+    { id: 'experience',label: nav.experience },
     { id: 'projects', label: nav.projects },
     { id: 'education',label: nav.education },
     { id: 'skills',   label: nav.skills },

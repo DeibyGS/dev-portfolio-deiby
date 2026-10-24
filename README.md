@@ -67,6 +67,7 @@ src/
   data/
     i18n.js         # All translations (ES/EN) — single source of truth
     projects.js     # Project data
+    experience.js   # Work history data (ES/EN)
   __tests__/        # Unit tests (Vitest + RTL)
 ```
 
@@ -78,8 +79,9 @@ src/
 |---|---|
 | **Hero** | Terminal-animated intro, bio, CTA, availability badge |
 | **About** | Professional summary and background |
-| **Skills** | 33 technologies across 5 groups with 4 skill levels (advanced / intermediate / basic / learning) |
-| **Education** | Formal training + 7 certifications (Oracle, IBM, Microsoft, The Power) + 11 courses |
+| **Experience** | Work history: independent open source tools (04/2026 – present) and Mercanza internship (02/2026 – 06/2026) |
+| **Skills** | 33 technologies across 5 groups, tiered by provenance (professional experience / projects / coursework) |
+| **Education** | Formal training + 6 certifications (Oracle, IBM, Microsoft, The Power) + 11 courses (Oracle, IBM and Bejob shown; the rest folded) |
 | **Projects** | Portfolio of personal and professional projects |
 | **GitHub Activity** | Real-time contribution calendar |
 | **Contact** | Direct contact links |
