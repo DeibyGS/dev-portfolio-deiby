@@ -17,86 +17,76 @@ const itemVariants = {
 
 const D = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
 
-// level: 0-100 — thresholds: ≥75 advanced · ≥55 intermediate · ≥35 basic · <35 learning
-// source: 'project' (demonstrated in a public repo) · 'practice' (coursework/practice, no public repo) · 'cert' (backed by a certification in Education.jsx)
+// tier — de dónde procede la habilidad (sin barras de nivel: los niveles subjetivos
+// contradecían el CV, p. ej. marcar FastAPI o Kafka como "básico").
+//   'pro'     → uso profesional (stack de Mercanza: Python, FastAPI, PostgreSQL, Kafka, Docker, MongoDB)
+//   'project' → demostrada en proyectos propios publicados
+//   'form'    → solo formación / certificaciones (no usada en proyectos ni en el trabajo)
 const groups = [
   {
     label: 'Languages & Frameworks',
     items: [
-      { label: 'HTML5',        src: `${D}/html5/html5-original.svg`,             level: 88, source: 'project' },
-      { label: 'JavaScript',   src: `${D}/javascript/javascript-original.svg`,   level: 80, source: 'project' },
-      { label: 'TypeScript',   src: `${D}/typescript/typescript-original.svg`,   level: 65, source: 'project' },
-      { label: 'React',        src: `${D}/react/react-original.svg`,             level: 82, source: 'project' },
-      { label: 'React Native', src: `${D}/react/react-original.svg`,             level: 60, source: 'project' },
-      { label: 'Next.js',      src: `${D}/nextjs/nextjs-original.svg`,           level: 65, source: 'project' },
-      { label: 'Node.js',      src: `${D}/nodejs/nodejs-original.svg`,           level: 68, source: 'project' },
-      { label: 'Express',      src: `${D}/express/express-original.svg`,         level: 62, source: 'project' },
-      { label: 'Python',       src: `${D}/python/python-original.svg`,           level: 70, source: 'project' },
-      { label: 'FastAPI',      src: `${D}/fastapi/fastapi-original.svg`,         level: 40, source: 'project' },
-      { label: 'Java',         src: `${D}/java/java-original.svg`,               level: 40, source: 'practice' },
-      { label: 'Kotlin',       src: `${D}/kotlin/kotlin-original.svg`,           level: 35, source: 'practice' },
-      { label: 'Docker',       src: `${D}/docker/docker-original.svg`,           level: 58, source: 'project' },
-      { label: 'Kafka',        src: `${D}/apachekafka/apachekafka-original.svg`, level: 40, source: 'practice' },
-      { label: 'Git',          src: `${D}/git/git-original.svg`,                 level: 80, source: 'project' },
-      { label: 'Vercel',       src: `${D}/vercel/vercel-original.svg`,           level: 70, source: 'project' },
-      { label: 'Power BI',     src: 'https://img.icons8.com/color/48/power-bi.png', level: 65, source: 'practice' },
+      { label: 'HTML5',        src: `${D}/html5/html5-original.svg`,             tier: 'project' },
+      { label: 'JavaScript',   src: `${D}/javascript/javascript-original.svg`,   tier: 'project' },
+      { label: 'TypeScript',   src: `${D}/typescript/typescript-original.svg`,   tier: 'project' },
+      { label: 'React',        src: `${D}/react/react-original.svg`,             tier: 'project' },
+      { label: 'React Native', src: `${D}/react/react-original.svg`,             tier: 'project' },
+      { label: 'Next.js',      src: `${D}/nextjs/nextjs-original.svg`,           tier: 'project' },
+      { label: 'Node.js',      src: `${D}/nodejs/nodejs-original.svg`,           tier: 'project' },
+      { label: 'Express',      src: `${D}/express/express-original.svg`,         tier: 'project' },
+      { label: 'Python',       src: `${D}/python/python-original.svg`,           tier: 'pro' },
+      { label: 'FastAPI',      src: `${D}/fastapi/fastapi-original.svg`,         tier: 'pro' },
+      { label: 'Java',         src: `${D}/java/java-original.svg`,               tier: 'form' },
+      { label: 'Kotlin',       src: `${D}/kotlin/kotlin-original.svg`,           tier: 'form' },
+      { label: 'Docker',       src: `${D}/docker/docker-original.svg`,           tier: 'pro' },
+      { label: 'Kafka',        src: `${D}/apachekafka/apachekafka-original.svg`, tier: 'pro' },
+      { label: 'Git',          src: `${D}/git/git-original.svg`,                 tier: 'project' },
+      { label: 'Vercel',       src: `${D}/vercel/vercel-original.svg`,           tier: 'project' },
+      { label: 'Power BI',     src: 'https://img.icons8.com/color/48/power-bi.png', tier: 'form' },
     ],
   },
   {
     label: 'AI-assisted dev tools',
     items: [
-      { label: 'Claude Code',  src: 'https://cdn.simpleicons.org/anthropic/white', level: 60, source: 'project' },
-      { label: 'OpenCode',     src: `${D}/bash/bash-original.svg`,               level: 60, source: 'project' },
+      { label: 'Claude Code',  src: 'https://cdn.simpleicons.org/anthropic/white', tier: 'project' },
+      { label: 'OpenCode',     src: `${D}/bash/bash-original.svg`,               tier: 'project' },
     ],
   },
   {
     label: 'Testing',
     items: [
-      { label: 'Vitest',         src: `${D}/vitest/vitest-original.svg`,  level: 65, source: 'project' },
-      { label: 'Jest',           src: `${D}/jest/jest-plain.svg`,          level: 55, source: 'project' },
-      { label: 'React Test Lib', src: `${D}/react/react-original.svg`,    level: 60, source: 'project' },
-      { label: 'pytest',         src: `${D}/pytest/pytest-original.svg`,  level: 50, source: 'project' },
+      { label: 'Vitest',         src: `${D}/vitest/vitest-original.svg`,  tier: 'project' },
+      { label: 'Jest',           src: `${D}/jest/jest-plain.svg`,          tier: 'project' },
+      { label: 'React Test Lib', src: `${D}/react/react-original.svg`,    tier: 'project' },
+      { label: 'pytest',         src: `${D}/pytest/pytest-original.svg`,  tier: 'project' },
     ],
   },
   {
     label: 'Databases',
     items: [
-      { label: 'MongoDB',    src: `${D}/mongodb/mongodb-original.svg`,       level: 62, source: 'project' },
-      { label: 'PostgreSQL', src: `${D}/postgresql/postgresql-original.svg`, level: 60, source: 'project' },
-      { label: 'MySQL',      src: `${D}/mysql/mysql-original.svg`,           level: 63, source: 'practice' },
-      { label: 'Oracle SQL', src: `${D}/oracle/oracle-original.svg`,         level: 65, source: 'cert' },
-      { label: 'PL/SQL',     src: `${D}/oracle/oracle-original.svg`,         level: 25, source: 'cert' },
-      { label: 'SQLite',     src: `${D}/sqlite/sqlite-original.svg`,         level: 60, source: 'project' },
+      { label: 'MongoDB',    src: `${D}/mongodb/mongodb-original.svg`,       tier: 'pro' },
+      { label: 'PostgreSQL', src: `${D}/postgresql/postgresql-original.svg`, tier: 'pro' },
+      { label: 'MySQL',      src: `${D}/mysql/mysql-original.svg`,           tier: 'form' },
+      { label: 'Oracle SQL', src: `${D}/oracle/oracle-original.svg`,         tier: 'form' },
+      { label: 'PL/SQL',     src: `${D}/oracle/oracle-original.svg`,         tier: 'form' },
+      { label: 'SQLite',     src: `${D}/sqlite/sqlite-original.svg`,         tier: 'project' },
     ],
   },
   {
     label: 'Styles',
     items: [
-      { label: 'CSS3',      src: `${D}/css3/css3-original.svg`,               level: 85, source: 'project' },
-      { label: 'SCSS',      src: `${D}/sass/sass-original.svg`,               level: 80, source: 'project' },
-      { label: 'Tailwind',  src: `${D}/tailwindcss/tailwindcss-original.svg`, level: 60, source: 'project' },
-      { label: 'Bootstrap', src: `${D}/bootstrap/bootstrap-original.svg`,     level: 40, source: 'practice' },
+      { label: 'CSS3',      src: `${D}/css3/css3-original.svg`,               tier: 'project' },
+      { label: 'SCSS',      src: `${D}/sass/sass-original.svg`,               tier: 'project' },
+      { label: 'Tailwind',  src: `${D}/tailwindcss/tailwindcss-original.svg`, tier: 'project' },
+      { label: 'Bootstrap', src: `${D}/bootstrap/bootstrap-original.svg`,     tier: 'form' },
     ],
   },
 ]
 
-function getBar(level) {
-  const filled = Math.round(level / 10)
-  return '█'.repeat(filled) + '░'.repeat(10 - filled)
-}
-
-function getLevelLabel(level, labels) {
-  if (level >= 75) return labels.advanced
-  if (level >= 55) return labels.intermediate
-  if (level >= 35) return labels.basic
-  return labels.learning
-}
-
-function getLevelColor(level) {
-  if (level >= 75) return 'text-matrix border-matrix/50'
-  if (level >= 55) return 'text-dark-muted border-dark-border'
-  if (level >= 35) return 'text-dark-muted/70 border-dark-border/70'
-  return 'text-dark-muted/50 border-dark-border/50'
+function getTierColor(tier) {
+  if (tier === 'pro') return 'text-matrix border-matrix/50'
+  if (tier === 'form') return 'text-dark-muted/70 border-dark-border/70'
+  return 'text-dark-muted border-dark-border'
 }
 
 function TechStack() {
@@ -147,14 +137,13 @@ function TechStack() {
                     whileInView="visible"
                     viewport={{ once: true, margin: '-60px' }}
                   >
-                    {group.items.map(({ label, src, level, source }) => (
+                    {group.items.map(({ label, src, tier }) => (
                       <motion.div key={label} variants={itemVariants} className="flex items-center gap-2 group">
                         <span className="font-mono text-xs text-matrix shrink-0 w-5">[+]</span>
                         <img src={src} alt={label} width={16} height={16} className="w-4 h-4 shrink-0 object-contain" />
                         <span className="font-mono text-xs text-dark-text w-24 shrink-0 truncate">{label}</span>
-                        <span className="font-mono text-xs text-matrix/70 tracking-tighter shrink-0 hidden sm:block">{getBar(level)}</span>
-                        <span className={`font-mono text-xs border px-1 shrink-0 ml-auto ${getLevelColor(level)}`}>
-                          {getLevelLabel(level, t.levelLabels)} · {t.sourceLabels[source]}
+                        <span className={`font-mono text-xs border px-1 shrink-0 ml-auto ${getTierColor(tier)}`}>
+                          {t.tierLabels[tier]}
                         </span>
                       </motion.div>
                     ))}

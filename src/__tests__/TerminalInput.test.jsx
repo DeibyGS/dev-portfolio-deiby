@@ -4,7 +4,7 @@ import TerminalInput from '../components/TerminalInput'
 
 const t = {
   hint: "escribe 'help' para explorar",
-  whoami: ['Deiby Gorrin', 'Fullstack Developer · disponible para oportunidades'],
+  whoami: ['Deiby Gorrin', 'Desarrollador Junior Python & TypeScript · disponible para oportunidades'],
   help: [
     'help          → muestra este mensaje',
     'ls            → lista las secciones',

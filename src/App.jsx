@@ -6,6 +6,7 @@ import About from './components/About'
 import TechStack from './components/TechStack'
 import Projects from './components/Projects'
 import Education from './components/Education'
+import Experience from './components/Experience'
 import GithubActivity from './components/GithubActivity'
 import Stats from './components/Stats'
 import SectionNav from './components/SectionNav'
@@ -26,6 +27,7 @@ function MainContent() {
         <Hero />
         <Stats />
         <About />
+        <Experience />
         <Projects />
         <Education />
         <TechStack />

@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 
-const SECTIONS = ['hero', 'about', 'projects', 'education', 'skills', 'activity', 'contact']
+const SECTIONS = ['hero', 'about', 'experience', 'projects', 'education', 'skills', 'activity', 'contact']
 const COMMANDS = ['help', 'ls', 'goto', 'open', 'whoami', 'clear']
 
 /**
