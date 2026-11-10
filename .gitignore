@@ -34,7 +34,7 @@ coverage/
 
 # Claude / agentes — documentación interna, no va al repo
 HANDOFF.md
-TRANSITION.md
+.claude/
 summary-*.md
 CLAUDE.md
 AGENTS.md
